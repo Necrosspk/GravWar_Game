@@ -16,7 +16,7 @@ public class characterControllerScript : MonoBehaviour {
 	public float maxSpeedlittle = 5f; 
 	public float maxSpeedstandart = 5f; 
 	//переменная для определения направления персонажа вправо/влево
-	private bool isFacingRight = true;
+	public bool isFacingRight = true;
 	//ссылка на компонент анимаций
 	public Animator anim;
 	//Turn
