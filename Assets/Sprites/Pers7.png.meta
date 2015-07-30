@@ -1,0 +1,1697 @@
+fileFormatVersion: 2
+guid: 26f2353dca790db47a3bbe4c7f749655
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Shlep_0
+    21300002: Shlep_1
+    21300004: Shlep_2
+    21300006: Shlep_3
+    21300008: Shlep_4
+    21300010: Shlep_5
+    21300012: Shlep_6
+    21300014: Shlep_7
+    21300016: Shlep_8
+    21300018: Shlep_9
+    21300020: Shlep_10
+    21300022: Shlep_11
+    21300024: Shlep_12
+    21300026: Shlep_13
+    21300028: Shlep_14
+    21300030: Shlep_15
+    21300032: Shlep_16
+    21300034: Shlep_17
+    21300036: Shlep_18
+    21300038: Shlep_19
+    21300040: Shlep_20
+    21300042: f_21
+    21300044: Pers7_22
+    21300046: Pers7_23
+    21300048: Pers7_24
+    21300050: Pers7_25
+    21300052: Pers7_26
+    21300054: Pers7_27
+    21300056: Pers7_28
+    21300058: Pers7_29
+    21300060: Pers7_30
+    21300062: Pers7_31
+    21300064: Idle_32
+    21300066: Idle_33
+    21300068: Idle_34
+    21300070: Run_36
+    21300072: Run_37
+    21300074: RunC_38
+    21300076: RunC_39
+    21300078: RunC_40
+    21300080: RunC_41
+    21300082: RunC_42
+    21300084: RunC_43
+    21300086: RunC_44
+    21300088: RunC_45
+    21300090: RunC_46
+    21300092: RunC_47
+    21300094: RunC_48
+    21300096: RunStop_49
+    21300098: RunStop_50
+    21300100: RunStop_51
+    21300102: RunStop_52
+    21300104: Pers7_53
+    21300106: Pers7_54
+    21300108: Pers7_55
+    21300110: Pers7_56
+    21300112: Pers7_57
+    21300114: Pers7_58
+    21300116: Pers7_59
+    21300118: Pers7_60
+    21300120: Pers7_61
+    21300122: Pers7_62
+    21300124: Pers7_63
+    21300126: Pers7_64
+    21300128: Pers7_65
+    21300130: Pers7_66
+    21300132: Pers7_67
+    21300134: Pers7_68
+    21300136: Pers7_69
+    21300138: Jump_70
+    21300140: Jump_71
+    21300142: Jump_72
+    21300144: Jump_73
+    21300146: Jump_74
+    21300148: Jump_75
+    21300150: Jump_76
+    21300152: Jump_77
+    21300154: Pers7_78
+    21300156: Pers7_79
+    21300158: Pers7_80
+    21300160: Pers7_81
+    21300162: Pers7_82
+    21300164: Pers7_83
+    21300166: Pers7_84
+    21300168: Pers7_85
+    21300170: Pers7_86
+    21300172: Pers7_87
+    21300174: Pers7_88
+    21300176: Pers7_89
+    21300178: Pers7_90
+    21300180: JumpRun_91
+    21300182: JumpRun_92
+    21300184: JumpRun_93
+    21300186: JumpRun_94
+    21300188: JumpRun_95
+    21300190: JumpRun_96
+    21300192: JumpRun_97
+    21300194: Pers7_98
+    21300196: Pers7_99
+    21300198: Pers7_100
+    21300200: Pers7_101
+    21300202: Pers7_102
+    21300204: Pers7_103
+    21300206: Pers7_104
+    21300208: Pers7_105
+    21300210: Pers7_106
+    21300212: Pers7_107
+    21300214: Pers7_108
+    21300216: Pers7_109
+    21300218: Pers7_110
+    21300220: Pers7_111
+    21300222: Pers7_112
+    21300224: Pers7_113
+    21300226: Pers7_114
+    21300228: Pers7_115
+    21300230: Pers7_116
+    21300232: Pers7_117
+    21300234: Pers7_118
+    21300236: Pers7_119
+    21300238: Pers7_120
+    21300240: Pers7_121
+    21300242: Pers7_122
+    21300244: Pers7_123
+    21300246: Pers7_124
+    21300248: Pers7_125
+    21300250: Pers7_126
+    21300252: Pers7_127
+    21300254: Pers7_128
+    21300256: Pers7_129
+    21300258: Pers7_130
+    21300260: Pers7_131
+    21300262: Pers7_132
+    21300264: Pers7_133
+    21300266: Pers7_134
+    21300268: Pers7_135
+    21300270: Pers7_136
+    21300272: Pers7_137
+    21300274: Pers7_138
+    21300276: Pers7_139
+    21300278: Pers7_140
+    21300280: Pers7_141
+    21300282: Pers7_142
+    21300284: Pers7_143
+    21300286: Pers7_144
+    21300288: Pers7_145
+    21300290: Pers7_146
+    21300292: Pers7_147
+    21300294: Pers7_148
+    21300296: Pers7_149
+    21300298: Pers7_149
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Shlep_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 527
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 528
+        width: 36
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_2
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 533
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_3
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 534
+        width: 40
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_4
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 533
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_5
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 534
+        width: 39
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_6
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 536
+        width: 38
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_7
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 532
+        width: 42
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_8
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 538
+        width: 41
+        height: 22
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_9
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 534
+        width: 31
+        height: 26
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_10
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 535
+        width: 29
+        height: 27
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_11
+      rect:
+        serializedVersion: 2
+        x: 478
+        y: 535
+        width: 34
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_12
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 533
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_13
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 470
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_14
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 471
+        width: 19
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_15
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 469
+        width: 17
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_16
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 470
+        width: 14
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_17
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 469
+        width: 13
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_18
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 470
+        width: 18
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_19
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 471
+        width: 21
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Shlep_20
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 470
+        width: 19
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: f_21
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 471
+        width: 12
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_22
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 471
+        width: 13
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_23
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 471
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_24
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 471
+        width: 24
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_25
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 470
+        width: 19
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_26
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 469
+        width: 12
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_27
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 468
+        width: 16
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_28
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 469
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_29
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 468
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_30
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 470
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_31
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 456
+        width: 270
+        height: 4
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Idle_32
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 405
+        width: 14
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Idle_33
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 406
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Idle_34
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 408
+        width: 23
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Run_36
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 412
+        width: 24
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Run_37
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 411
+        width: 31
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_38
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 413
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_39
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 412
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_40
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 412
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_41
+      rect:
+        serializedVersion: 2
+        x: 301
+        y: 412
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_42
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 410
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_43
+      rect:
+        serializedVersion: 2
+        x: 358
+        y: 410
+        width: 31
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_44
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 410
+        width: 27
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_45
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 410
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_46
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 410
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_47
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 409
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunC_48
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 408
+        width: 32
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunStop_49
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 350
+        width: 26
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunStop_50
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 350
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunStop_51
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 349
+        width: 22
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: RunStop_52
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 349
+        width: 17
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_53
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 350
+        width: 29
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_54
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 349
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_55
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 350
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_56
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 350
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_57
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 351
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_58
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 352
+        width: 26
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_59
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 352
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_60
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 353
+        width: 24
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_61
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 354
+        width: 23
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_62
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 353
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_63
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 290
+        width: 20
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_64
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 291
+        width: 24
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_65
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 291
+        width: 31
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_66
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 291
+        width: 33
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_67
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 292
+        width: 28
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_68
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 292
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_69
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 292
+        width: 32
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_70
+      rect:
+        serializedVersion: 2
+        x: 276
+        y: 292
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_71
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 292
+        width: 18
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_72
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 295
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_73
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 294
+        width: 23
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_74
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 308
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_75
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 307
+        width: 22
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_76
+      rect:
+        serializedVersion: 2
+        x: 429
+        y: 302
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Jump_77
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 298
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_78
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 235
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_79
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 235
+        width: 25
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_80
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 236
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_81
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 234
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_82
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 237
+        width: 39
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_83
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 245
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_84
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 233
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_85
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 235
+        width: 36
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_86
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 233
+        width: 25
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_87
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 234
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_88
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 233
+        width: 27
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_89
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 232
+        width: 25
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_90
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 230
+        width: 25
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_91
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 178
+        width: 29
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_92
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 184
+        width: 40
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_93
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 188
+        width: 37
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_94
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 185
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_95
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 184
+        width: 20
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_96
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 185
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: JumpRun_97
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 183
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_98
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 181
+        width: 12
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_99
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 182
+        width: 18
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_100
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 183
+        width: 15
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_101
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 183
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_102
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 182
+        width: 19
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_103
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 181
+        width: 23
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_104
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 181
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_105
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 181
+        width: 23
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_106
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 181
+        width: 22
+        height: 44
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_107
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 180
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_108
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 180
+        width: 19
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_109
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 113
+        width: 18
+        height: 47
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_110
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 117
+        width: 21
+        height: 36
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_111
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 114
+        width: 16
+        height: 52
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_112
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 113
+        width: 11
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_113
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 113
+        width: 15
+        height: 61
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_114
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 115
+        width: 19
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_115
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 114
+        width: 16
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_116
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 112
+        width: 12
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_117
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 115
+        width: 14
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_118
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 116
+        width: 18
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_119
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 116
+        width: 16
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_120
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 118
+        width: 16
+        height: 49
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_121
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 120
+        width: 15
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_122
+      rect:
+        serializedVersion: 2
+        x: 293
+        y: 120
+        width: 20
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_123
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 121
+        width: 22
+        height: 45
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_124
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 121
+        width: 21
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_125
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 128
+        width: 22
+        height: 39
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_126
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 132
+        width: 30
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_127
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 140
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_128
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 142
+        width: 27
+        height: 25
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_129
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 141
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_130
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 137
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_131
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 134
+        width: 19
+        height: 42
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_132
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 61
+        width: 20
+        height: 43
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_133
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 68
+        width: 31
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_134
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 69
+        width: 35
+        height: 38
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_135
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 100
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_136
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 101
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_137
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 100
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_138
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 99
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_139
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 46
+        width: 13
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_140
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 47
+        width: 15
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_141
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 47
+        width: 13
+        height: 62
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_142
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 62
+        width: 26
+        height: 31
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_143
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 65
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_144
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 65
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_145
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 47
+        width: 14
+        height: 50
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_146
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 46
+        width: 10
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_147
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 45
+        width: 12
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_148
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 44
+        width: 13
+        height: 51
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_149
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 177
+        height: 58
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Pers7_149
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 291
+        width: 39
+        height: 48
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

@@ -1,0 +1,274 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class EnemyScriptMelle : MonoBehaviour {
+	//находится ли персонаж на земле или в прыжке?
+	private bool isGrounded = false;
+	//ссылка на компонент Transform объекта
+	//для определения соприкосновения с землей
+	public Transform groundCheck;
+	//радиус определения соприкосновения с землей
+	private float groundRadius = 0.3f;
+	//ссылка на слой, представляющий землю
+	public LayerMask whatIsGround;
+	//переменная для установки макс. скорости персонажа
+	public float maxSpeed = 3f; 
+	//переменная для определения направления персонажа вправо/влево
+	private bool isFacingRight = true;
+	//ссылка на компонент анимаций
+	private Animator anim;
+	//PlayerInfo
+	private Transform playerTransform;
+	//Turn
+	public int turn =4;
+	public int moveit =0;
+	public int loot;
+	public bool lootable;
+	public bool attack;
+	//blood
+	public Transform bloodPrefab;
+	//GUI info
+	public int hp;
+
+	private CameraSmooth camScript;
+	private float move;
+	public bool ISeeYou=false;
+	private characterControllerScript playerscr;
+	public int BaseDmg = 5;
+	public float AttackCooldown = 1.0f;
+	public bool allive; 
+	public float Turntimer = 1.0f;
+
+	public AudioSource BreathAU;
+
+	private float smoothtext;
+	
+	/// <summary>
+	/// Начальная инициализация
+	/// </summary>
+	private void Start()
+	{
+		smoothtext = 1.0f;
+		lootable = true;
+		loot = Random.Range (7, 14);
+		camScript = (CameraSmooth)FindObjectOfType (typeof(CameraSmooth));
+		characterControllerScript player = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
+		playerTransform = player.transform;
+		playerscr = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
+		anim = GetComponent<Animator>();
+		allive = true;
+	}
+	
+	/// <summary>
+	/// Выполняем действия в методе FixedUpdate, т. к. в компоненте Animator персонажа
+	/// выставлено значение Animate Physics = true и анимация синхронизируется с расчетами физики
+	/// </summary>
+	/// 
+	/// 
+	private void FixedUpdate()
+	{
+		//определяем, на земле ли персонаж
+		isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround); 
+		//устанавливаем соответствующую переменную в аниматоре
+		anim.SetBool ("Ground", isGrounded);
+		//устанавливаем в аниматоре значение скорости взлета/падения
+		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+		//если персонаж в прыжке - выход из метода, чтобы не выполнялись действия, связанные с бегом
+		if (!isGrounded) {
+			if (anim.GetFloat("Speed")>8f)maxSpeed = 1f;
+		}
+		else
+			maxSpeed = 3f;
+	}
+	
+	/// <summary>
+	/// Метод для смены направления движения персонажа и его зеркального отражения
+	/// </summary>
+	
+	private void Flip()
+	{
+		//меняем направление движения персонажа
+		isFacingRight = !isFacingRight;
+		//получаем размеры персонажа
+		Vector3 theScale = transform.localScale;
+		//зеркально отражаем персонажа по оси Х
+		theScale.x *= -1;
+		//задаем новый размер персонажа, равный старому, но зеркально отраженный
+		transform.localScale = theScale;
+	}
+	
+	private void Update()
+	{
+		//if (Input.GetKeyDown (KeyCode.P))
+		//	TakeDmg (1);
+		
+		//используем Input.GetAxis для оси Х. метод возвращает значение оси в пределах от -1 до 1.
+		//при стандартных настройках проекта 
+		//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
+		//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
+		Turntimer -= Time.deltaTime;
+		if (!ISeeYou && Turntimer<=0) 
+		{
+			int rand=Random.Range(-1,2);
+				move = rand;
+			Turntimer=1.0f;
+		}
+
+		if (Vector3.Distance (playerTransform.position, this.transform.position) < 7.0f)
+				ISeeYou = true;
+
+		turn = camScript.rotate;	
+		// если дистанция до игрока больше трех метров
+		if (ISeeYou && Turntimer<=0) 
+		{
+			Turntimer=0.3f;
+			if (Vector3.Distance (playerTransform.position, this.transform.position) > 0.6f && allive) 
+			{
+					if (turn == 1) {
+							if (this.transform.position.x - playerTransform.position.x > 0.6f)			
+									move = -1;
+							else
+									move = 1;
+					}
+					if (turn == 3 && ISeeYou) {
+							if (this.transform.position.x - playerTransform.position.x > 0.6f)			
+									move = 1;
+							else
+									move = -1;
+					}
+					if (turn == 2 && ISeeYou) {
+							if (this.transform.position.y - playerTransform.position.y > 0.6f)			
+									move = -1;
+							else
+									move = 1;
+					}
+					if (turn == 4 && ISeeYou) {
+							if (this.transform.position.y - playerTransform.position.y > 0.6f)			
+									move = 1;
+							else
+									move = -1;
+					}
+			} 
+			else if (allive) // если меньше или равна трем метрам
+			{ 
+					move = 0;
+					if (AttackCooldown <= 0) 
+					{							
+						attack = true;
+						anim.SetBool ("Attack", true);
+						AttackCooldown = 1.0f;
+					}
+					else
+				{
+					anim.SetBool ("Attack", false);
+					attack = false;
+				}
+			} 
+			else
+			{
+				anim.SetBool ("Attack", false);
+				attack = false;
+			}
+		}
+		AttackCooldown -= Time.deltaTime;
+		
+		//в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
+		//приэтом нам нужен модуль значения
+		anim.SetFloat("Speed", Mathf.Abs(move));
+		
+		//if (anim.i) {
+		//turnison = false;
+		//	}
+		
+		
+		//поворот врага
+		if (move > 0 && !isFacingRight) {
+			moveit = 1;
+			//отражаем врага вправо
+			Flip ();
+		}
+		//обратная ситуация. отражаем врага влево
+		else if (move < 0 && isFacingRight) {
+			moveit = 0;
+			Flip ();
+		}
+
+		if (allive) {
+			switch (turn) {
+			case 1:
+					rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 0), 300f * Time.deltaTime);
+					break;
+			case 2:
+					rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, move * maxSpeed);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 90), 300f * Time.deltaTime);
+					break;
+			case 3:
+					rigidbody2D.velocity = new Vector2 (-move * maxSpeed, rigidbody2D.velocity.y);			
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 180), 300f * Time.deltaTime);
+					break;
+			case 4:
+					rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, -move * maxSpeed);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 270), 300f * Time.deltaTime);
+					break;
+			}
+		}
+
+		//если персонаж на земле и нажат пробел...
+//		if (isGrounded) 
+//		{
+//			//устанавливаем в аниматоре переменную в false
+//			anim.SetBool("Ground", false);
+//			//прикладываем силу вверх, чтобы персонаж подпрыгнул
+//			if (turn==1)
+//				if((this.transform.position.y-playerTransform.position.y>0.2f) || (this.transform.position.y-playerTransform.position.y<-0.2f))
+//				rigidbody2D.AddForce(new Vector2(0, 500));		
+//			else if (turn==2)
+//				if((this.transform.position.x-playerTransform.position.x>0.2f) || (this.transform.position.x-playerTransform.position.x<-0.2f))
+//				rigidbody2D.AddForce(new Vector2(-500, 0));
+//			else if (turn==3)
+//				if((this.transform.position.y-playerTransform.position.y>0.2f) || (this.transform.position.y-playerTransform.position.y<-0.2f))
+//				rigidbody2D.AddForce(new Vector2(0, -500));
+//			else if (turn==4)
+//				if((this.transform.position.x-playerTransform.position.x>0.2f) || (this.transform.position.x-playerTransform.position.x<-0.2f))
+//				rigidbody2D.AddForce(new Vector2(500,0));
+//		}
+
+		if (hp <= 0)
+			allive=false;
+
+		if (!allive && lootable) {
+			this.tag = "DeadEnemy";
+			anim.SetBool ("Dead",true);
+			this.collider2D.isTrigger=true;
+			this.rigidbody2D.isKinematic=true;
+			BreathAU.Stop ();
+			playerscr.money+=loot;
+			smoothtext=1.0f;			
+			lootable=false;
+				}
+		smoothtext -= Time.deltaTime;
+
+			
+
+	}
+	public bool TakeDmg(int Dmg)
+	{
+		var bloodTranform = Instantiate (bloodPrefab) as Transform;
+		bloodTranform.position = transform.position;
+		hp -= Dmg;
+		return true;
+	}
+
+	void OnGUI(){
+
+		if (!allive && smoothtext>=0) {
+			GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + loot.ToString()+"$");
+				
+				}  
+
+				
+
+		}
+
+}
