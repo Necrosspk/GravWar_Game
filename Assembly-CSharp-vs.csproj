@@ -57,6 +57,7 @@
      <Compile Include="Assets\MainMenu\VisualMenuScript.cs" />
      <Compile Include="Assets\Script\AttackTriger.cs" />
      <Compile Include="Assets\Script\BorderRight.cs" />
+     <Compile Include="Assets\Script\BorderRightForEnemy.cs" />
      <Compile Include="Assets\Script\CameraSmooth.cs" />
      <Compile Include="Assets\Script\Chests.cs" />
      <Compile Include="Assets\Script\Destroykaboom.cs" />

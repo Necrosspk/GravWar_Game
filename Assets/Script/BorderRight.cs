@@ -3,9 +3,7 @@ using System.Collections;
 
 public class BorderRight : MonoBehaviour {
 	public GameObject playerGO;
-	public GameObject enemyGO;
 	private characterControllerScript player;
-	private EnemyScriptMelle enemy;
 	private bool grounded;
 	private bool ya;
 
