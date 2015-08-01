@@ -13,6 +13,7 @@ public class PortalScript : MonoBehaviour {
 	private bool isStarted;
 	private bool entered;
 	private bool ended = false;
+	private bool press = false;
 
 	private Vector3[] Places1;
 	private Vector3[] Places2;
@@ -70,14 +71,17 @@ public class PortalScript : MonoBehaviour {
 		if (other.gameObject.tag == "Player") 
 			entered=true;						
 		}
+
+	void OnTriggerExit2D (Collider2D other) {
+		if (other.gameObject.tag == "Player") 
+			entered=false;						
+	}
 	
 	// Update is called once per frame
 	void Update () {
 
-		if (entered)
-			if(!ended)
-			if (Input.GetKeyDown (KeyCode.F)) 
-				StartEscapeEvent ();
+		if (Input.GetKeyDown (KeyCode.F) && entered && !ended && !isStarted) 
+			StartEscapeEvent ();
 
 		WavesTimer -= Time.deltaTime;//
 		MainTimer -= Time.deltaTime; //
@@ -161,18 +165,20 @@ public class PortalScript : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if (WavesNumber >= 6 && MainTimer>0) {
+		if (WavesNumber >= 6 && MainTimer>0)
 			ended = true;
-			if (Input.GetKeyDown (KeyCode.F)) 
-			{
-				GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 60), "!!You complite first stage!!");
-				if (GUI.Button (new Rect (Screen.width / 2 - 130, Screen.height / 2 - 20, 260, 20), "Vse huinya Misha, Davai zanovo))"))
-						Application.LoadLevel ("testStage");
-			}
+
+		if (Input.GetKeyDown (KeyCode.F) && ended && entered) 
+		{
+			press=true;
+			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 60), "!!You complite first stage!!");
+			if (GUI.Button (new Rect (Screen.width / 2 - 130, Screen.height / 2 - 20, 260, 20), "Vse huinya Misha, Davai zanovo))"))
+				Application.LoadLevel ("testStage");
+			//Time.timeScale = 0;
 		}
 		if (!isStarted && entered)
 				GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Press 'F' to activate Portal (and preapre to DIE)");
-		if (entered && ended)
+		if (entered && ended && !press)
 			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Press 'F' to next level");
 	
 	

@@ -42,14 +42,14 @@ public class characterControllerScript : MonoBehaviour {
 	public int Maxhp = 100;
 	public int money;
 	public int startmoney = 500;
-
+	
 	// ITEMS
 	public int item_id = 0;
 	public int item_gui = 0;
 	private float item_gui_time = 2f;
 	private float item_gui_timerstop = 0f;
 	private bool item_gui_timer_on = false;
-
+	
 	/// <summary>
 	/// Начальная инициализация
 	/// </summary>
@@ -61,7 +61,7 @@ public class characterControllerScript : MonoBehaviour {
 		money = startmoney;
 		Physics2D.gravity = new Vector2 (0, -30f);
 		anim = GetComponent<Animator>();
-
+		
 		camScript=camera1.GetComponent<CameraSmooth>();
 	}
 	
@@ -74,25 +74,25 @@ public class characterControllerScript : MonoBehaviour {
 	private void FixedUpdate()
 	{
 		if (allive) {
-		//определяем, на земле ли персонаж
-		isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
-		//устанавливаем соответствующую переменную в аниматоре
-		anim.SetBool ("Ground", isGrounded);
-		//устанавливаем в аниматоре значение скорости взлета/падения
-		anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
-		//если персонаж в прыжке - выход из метода, чтобы не выполнялись действия, связанные с бегом
-		//if (!isGrounded) {
-		//		if (anim.GetFloat ("Speed") > 8f)
-		//			maxSpeed = maxSpeedlittle;
-		//} else
-		//		maxSpeed = maxSpeedstandart;
+			//определяем, на земле ли персонаж
+			isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
+			//устанавливаем соответствующую переменную в аниматоре
+			anim.SetBool ("Ground", isGrounded);
+			//устанавливаем в аниматоре значение скорости взлета/падения
+			anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+			//если персонаж в прыжке - выход из метода, чтобы не выполнялись действия, связанные с бегом
+			//if (!isGrounded) {
+			//		if (anim.GetFloat ("Speed") > 8f)
+			//			maxSpeed = maxSpeedlittle;
+			//} else
+			//		maxSpeed = maxSpeedstandart;
 		}
 	}
 	
 	/// <summary>
 	/// Метод для смены направления движения персонажа и его зеркального отражения
 	/// </summary>
-
+	
 	private void Flip()
 	{
 		//меняем направление движения персонажа
@@ -104,7 +104,7 @@ public class characterControllerScript : MonoBehaviour {
 		//задаем новый размер персонажа, равный старому, но зеркально отраженный
 		transform.localScale = theScale;
 	}
-
+	
 	private void Update()
 	{
 		if (allive) {
@@ -119,86 +119,86 @@ public class characterControllerScript : MonoBehaviour {
 			//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
 			//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
 			float move = Input.GetAxis ("Horizontal");
-
-
+			
+			
 			//в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
 			//приэтом нам нужен модуль значения
 			anim.SetFloat ("Speed", Mathf.Abs (move));
-
+			
 			//if (anim.i) {
 			//turnison = false;
 			//	}
-
-
+			
+			
 			//если нажали клавишу для перемещения вправо, а персонаж направлен влево
 			if (move > 0 && !isFacingRight) {
-					moveit = 1;
-					//отражаем персонажа вправо
-					Flip ();
+				moveit = 1;
+				//отражаем персонажа вправо
+				Flip ();
 			}
 			//обратная ситуация. отражаем персонажа влево
 			else if (move < 0 && isFacingRight) {
-					moveit = 0;
-					Flip ();
+				moveit = 0;
+				Flip ();
 			}
-
-
+			
+			
 			timerturn += Time.deltaTime;
 			if (Input.GetKeyDown (KeyCode.Q) || Input.GetKeyDown (KeyCode.E)) {
-					turn = camScript.rotate;
+				turn = camScript.rotate;
 				//if (timerturn >= KDturn)
 				//{
-					switch (turn) {
-					case 1:
-							Physics2D.gravity = new Vector2 (0, -30f);
-							transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 0), 300f * Time.deltaTime);
-							break;
-					case 2:
-							Physics2D.gravity = new Vector2 (30f, 0);
-							transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 90), 300f * Time.deltaTime);
-							break;
-					case 3:
-							Physics2D.gravity = new Vector2 (0, 30f);
-							transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 180), 300f * Time.deltaTime);
-							break;
-					case 4:
-							Physics2D.gravity = new Vector2 (-30f, 0);
-							transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 270), 300f * Time.deltaTime);
-							break;
-					}
-					timerturn = 0;
+				switch (turn) {
+				case 1:
+					Physics2D.gravity = new Vector2 (0, -30f);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 0), 300f * Time.deltaTime);
+					break;
+				case 2:
+					Physics2D.gravity = new Vector2 (30f, 0);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 90), 300f * Time.deltaTime);
+					break;
+				case 3:
+					Physics2D.gravity = new Vector2 (0, 30f);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 180), 300f * Time.deltaTime);
+					break;
+				case 4:
+					Physics2D.gravity = new Vector2 (-30f, 0);
+					transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 270), 300f * Time.deltaTime);
+					break;
+				}
+				timerturn = 0;
 				//}
 			}
-
+			
 			switch (turn) {
 			case 1:
-					rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
-					break;
+				rigidbody2D.velocity = new Vector2 (move * maxSpeed, rigidbody2D.velocity.y);
+				break;
 			case 2:
-					rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, move * maxSpeed);
-					break;
+				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, move * maxSpeed);
+				break;
 			case 3:
-					rigidbody2D.velocity = new Vector2 (-move * maxSpeed, rigidbody2D.velocity.y);
-					break;
+				rigidbody2D.velocity = new Vector2 (-move * maxSpeed, rigidbody2D.velocity.y);
+				break;
 			case 4:
-					rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, -move * maxSpeed);
-					break;
+				rigidbody2D.velocity = new Vector2 (rigidbody2D.velocity.x, -move * maxSpeed);
+				break;
 			}
 			//если персонаж на земле и нажат пробел...
 			if (isGrounded && Input.GetKeyDown (KeyCode.Space)) {
-					//устанавливаем в аниматоре переменную в false
-					anim.SetBool ("Ground", false);
-					//прикладываем силу вверх, чтобы персонаж подпрыгнул
-					if (turn == 1)
+				//устанавливаем в аниматоре переменную в false
+				anim.SetBool ("Ground", false);
+				//прикладываем силу вверх, чтобы персонаж подпрыгнул
+				if (turn == 1)
 					rigidbody2D.AddForce (new Vector2 (0, jumpheight));
-					else if (turn == 2)
+				else if (turn == 2)
 					rigidbody2D.AddForce (new Vector2 (-jumpheight, 0));
-					else if (turn == 3)
+				else if (turn == 3)
 					rigidbody2D.AddForce (new Vector2 (0, -jumpheight));
-					else if (turn == 4)
+				else if (turn == 4)
 					rigidbody2D.AddForce (new Vector2 (jumpheight, 0));
 			}
-
+			
 			//		// 5 - Стрельба
 			//		bool shoot = Input.GetButtonDown("Fire1");
 			//		shoot |= Input.GetButtonDown("Fire2");
@@ -213,7 +213,7 @@ public class characterControllerScript : MonoBehaviour {
 			//				weapon.Attack(false);
 			//			}
 			//		}
-				}
+		}
 		if (hp <= 0) {
 			allive = false;
 			anim.SetBool("Dead",true);
@@ -259,8 +259,8 @@ public class characterControllerScript : MonoBehaviour {
 		}
 		// TIMER FOR GUI
 		if (item_gui_timer_on)
-						item_gui_timerstop += Time.deltaTime;
-				else 
+			item_gui_timerstop += Time.deltaTime;
+		else 
 			item_gui_timerstop = 0f;
 		//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	}
@@ -273,7 +273,7 @@ public class characterControllerScript : MonoBehaviour {
 		GUID.transform.position = transform.position;
 		return true;
 	}
-
+	
 	void OnGUI(){
 		switch (item_gui) {
 		case 0:
@@ -283,43 +283,43 @@ public class characterControllerScript : MonoBehaviour {
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You hp increase on 10%!");
 			else 
 				item_gui_timer_on = false;
-				break;
+			break;
 		case 2:
 			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You dmg increase on 2!");
 			else 
 				item_gui_timer_on = false;
-				break;			
+			break;			
 		case 3:
 			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You attack increase speed 10%!");
 			else 			
 				item_gui_timer_on = false;
-				break;
+			break;
 		case 4:
 			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You speed increase on 10%!");
 			else 
 				item_gui_timer_on = false;
-				break;
+			break;
 		case 5:
 			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You rotate KD decrease on 0.2 sec!");
 			else 
 				item_gui_timer_on = false;
-				break;
+			break;
 		case 6:
 			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
 				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"You jump height increase on 10%!");
 			else 
 				item_gui_timer_on = false;
-				break;
-				}
+			break;
+		}
 	}
 	//------------------------------------------------------------------------- \\
 	//----------------------------------ITEMS---------------------------------- \\
 	//------------------------------------------------------------------------- \\
-
+	
 	// +hp
 	private int HpItem_id_1(int base_hp) // Increase hp on  10%
 	{
@@ -376,9 +376,21 @@ public class characterControllerScript : MonoBehaviour {
 	// +st
 	// +spell
 	// +
-
-
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
