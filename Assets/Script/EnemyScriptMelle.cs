@@ -109,7 +109,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 		Turntimer -= Time.deltaTime;
 		if (!ISeeYou && Turntimer<=0) 
 		{
-			int rand=Random.Range(-1,2);
+			int rand=Random.Range(-2,2);
 				move = rand;
 			Turntimer=1.0f;
 		}

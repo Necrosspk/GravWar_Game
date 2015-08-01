@@ -10,6 +10,8 @@ public class AttackTriger : MonoBehaviour {
 	private float spddmg;
 	private float time = 0;
 
+	private ArcherWar ArcherScript;
+
 	void Start()
 	{
 		playerSCR = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
@@ -19,7 +21,7 @@ public class AttackTriger : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		//Debug.Log("Trigger: Player Entered");
-		if (other.gameObject.tag == "Enemy") 
+		if (other.gameObject.tag == "EnemyMelle") 
 		{
 			EnSCR = other.GetComponent<EnemyScriptMelle> ();
 			if (time >= spddmg)
@@ -28,6 +30,21 @@ public class AttackTriger : MonoBehaviour {
 				{
 					Punch.Play();
 					EnSCR.TakeDmg(dmg);
+					time = 0;				
+					attacked = false;
+				}
+			}
+			//Debug.Log("WOW!");
+		}
+		if (other.gameObject.tag == "EnemyArcher") 
+		{
+			ArcherScript = other.GetComponent<ArcherWar> ();
+			if (time >= spddmg)
+			{
+				if(attacked)
+				{
+					Punch.Play();
+					ArcherScript.TakeDmg(dmg);
 					time = 0;				
 					attacked = false;
 				}
