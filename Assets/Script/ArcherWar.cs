@@ -20,7 +20,7 @@ public class ArcherWar : MonoBehaviour
 	public bool lootableArcher;
 	public bool attackArcher;
 	//переменная для определения направления персонажа вправо/влево
-	private bool isFacingRightArcher = true;
+	public bool isFacingRightArcher = true;
 	//ссылка на компонент анимаций
 	private Animator animArcher;
 	//для определения соприкосновения с землей
@@ -112,7 +112,7 @@ public class ArcherWar : MonoBehaviour
 			if (Vector3.Distance (playerTransformArcher.position, this.transform.position) > 2.2f && alliveArcher) 
 			{
 				if (turnArcher == 1) {
-					if (this.transform.position.x - playerTransformArcher.position.x >2.2f)			
+					if (this.transform.position.x - playerTransformArcher.position.x > 2.2f)			
 						moveArcher = -1;
 					else
 						moveArcher = 1;
@@ -153,6 +153,65 @@ public class ArcherWar : MonoBehaviour
 					animArcher.SetBool ("Attack", false);
 					attackArcher = false;
 				}
+				if (Vector3.Distance (playerTransformArcher.position, this.transform.position) <= 2.2f && alliveArcher) 
+				{
+					if (transform.position.x < playerTransformArcher.position.x && !isFacingRightArcher)
+					{
+						if (turnArcher == 1)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.x > playerTransformArcher.position.x && isFacingRightArcher)
+					{
+						if (turnArcher == 1)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.y < playerTransformArcher.position.y && !isFacingRightArcher)
+					{
+						if (turnArcher == 2)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.y > playerTransformArcher.position.y && isFacingRightArcher)
+					{
+						if (turnArcher == 2)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.x > playerTransformArcher.position.x && !isFacingRightArcher)
+					{
+						if (turnArcher == 3)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.x < playerTransformArcher.position.x && isFacingRightArcher)
+					{
+						if (turnArcher == 3)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.y > playerTransformArcher.position.y && !isFacingRightArcher)
+					{
+						if (turnArcher == 4)
+						{
+							Flip ();
+						}
+					}
+					if (transform.position.y < playerTransformArcher.position.y && isFacingRightArcher)
+					{
+						if (turnArcher == 4)
+						{
+							Flip ();
+						}
+					}
+				}
 			} 
 			else
 			{
@@ -161,6 +220,15 @@ public class ArcherWar : MonoBehaviour
 			}
 		}
 		AttackCooldown -= Time.deltaTime;
+
+		if (attackArcher == true) 
+		{
+			WeaponScript weapon = GetComponent<WeaponScript>();
+			if (weapon != null)
+			{
+				weapon.Attack(true);
+			}
+		}
 		
 		//в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
 		//приэтом нам нужен модуль значения

@@ -50,6 +50,7 @@ public class WeaponScript : MonoBehaviour {
 			shotTransform.position = transform.position;
 			
 			// Свойство врага
+
 			ShotScript shot = shotTransform.gameObject.GetComponent<ShotScript>();
 			if (shot != null)
 			{
@@ -58,24 +59,22 @@ public class WeaponScript : MonoBehaviour {
 
 			// Сделайте так, чтобы выстрел всегда был направлен на него
 			MoveScript move = shotTransform.gameObject.GetComponent<MoveScript>();
-			characterControllerScript ch = GetComponent ("characterControllerScript") as characterControllerScript;
-			///
-			///
-			///
+			ArcherWar ch = GetComponent<ArcherWar>();
 				
-				if (ch.moveit==1) {
-					if (move != null) {
+			if (ch.isFacingRightArcher == true) 
+			{
+				if (move != null) 
+				{
 						move.direction = this.transform.right; // в двухмерном пространстве это будет справа от спрайта
-					}
 				}
-				if (ch.moveit==0) {
-					if (move != null) {
-						move.direction = -this.transform.right; // в двухмерном пространстве это будет справа от спрайта
-					}
+			}
+			if (ch.isFacingRightArcher == false) 
+			{
+				if (move != null) 
+				{
+					move.direction = -this.transform.right; // в двухмерном пространстве это будет справа от спрайта
 				}
-
-			
-
+			}
 		}
 	}
 	
