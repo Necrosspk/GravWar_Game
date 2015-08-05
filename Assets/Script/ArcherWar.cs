@@ -41,6 +41,11 @@ public class ArcherWar : MonoBehaviour
 	private float smoothText;
 	public GameObject bloodPrefab;
 
+	public bool despawnOn = false;
+	public float despawnT = 20f;
+	private float scaleDespawn;
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -51,6 +56,7 @@ public class ArcherWar : MonoBehaviour
 		playerTransformArcher = player.transform;
 		playerscrArcher = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
 		animArcher = GetComponent<Animator>();
+		scaleDespawn = despawnT;
 		alliveArcher = true;	
 	}
 
@@ -280,12 +286,19 @@ public class ArcherWar : MonoBehaviour
 			animArcher.SetBool ("Dead",true);
 			this.collider2D.isTrigger=true;
 			this.rigidbody2D.isKinematic=true;
-			//BreathAU.Stop ();
 			playerscrArcher.money += lootArcher;
-			smoothText=1.0f;			
+			smoothText=1.0f;
 			lootableArcher=false;
 		}
 		smoothText -= Time.deltaTime;
+		if (!alliveArcher && smoothText <=0 && despawnOn) 
+		{
+			despawnT -= Time.deltaTime;
+			Vector3 theScale = transform.localScale;
+			this.transform.localScale = new Vector3(theScale.x*despawnT/scaleDespawn,theScale.y,theScale.z);
+			if (despawnT <= 0)
+				DestroyObject(this.gameObject);
+		}
 	}
 
 	public bool TakeDmg(int Dmg)

@@ -42,6 +42,11 @@ public class EnemyScriptMelle : MonoBehaviour {
 	public AudioSource BreathAU;
 
 	private float smoothtext;
+
+	public bool despawnOn = false;
+	public float despawnT = 20f;
+	private float scaleDespawn;
+
 	
 	/// <summary>
 	/// Начальная инициализация
@@ -57,6 +62,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 		playerscr = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
 		anim = GetComponent<Animator>();
 		allive = true;
+		scaleDespawn = despawnT;
 	}
 	
 	/// <summary>
@@ -248,6 +254,14 @@ public class EnemyScriptMelle : MonoBehaviour {
 			lootable=false;
 				}
 		smoothtext -= Time.deltaTime;
+		if (!allive && smoothtext <=0 && despawnOn) 
+		{
+			despawnT -= Time.deltaTime;
+			Vector3 theScale = transform.localScale;
+			this.transform.localScale = new Vector3(theScale.x*despawnT/scaleDespawn,theScale.y,theScale.z);
+			if (despawnT <= 0)
+				DestroyObject(this.gameObject);
+		}
 
 			
 

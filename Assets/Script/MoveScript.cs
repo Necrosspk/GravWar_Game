@@ -21,6 +21,11 @@ public class MoveScript : MonoBehaviour
 	
 	private Vector2 movement;
 
+	void Start()
+	{
+		player = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
+	}
+
 	void OnTriggerEnter2D( Collider2D other)
 	{
 		//DestroyObject (this);
@@ -63,6 +68,21 @@ public class MoveScript : MonoBehaviour
 		movement = new Vector2(
 			speed.x * direction.x,
 			speed.y * direction.y);
+
+		switch (player.turn) {
+		case 1:
+			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 0), 300f * Time.deltaTime);
+			break;
+		case 2:
+			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 90), 300f * Time.deltaTime);
+			break;
+		case 3:
+			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 180), 300f * Time.deltaTime);
+			break;
+		case 4:
+			transform.rotation = Quaternion.Lerp (transform.rotation, Quaternion.Euler (0, 0, 270), 300f * Time.deltaTime);
+			break;
+		}
 	}
 	
 	void FixedUpdate()

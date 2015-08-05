@@ -8,7 +8,7 @@ public class characterControllerScript : MonoBehaviour {
 	//для определения соприкосновения с землей
 	public Transform groundCheck;
 	//радиус определения соприкосновения с землей
-	private float groundRadius = 0.3f;
+	private float groundRadius = 0.01f;
 	//ссылка на слой, представляющий землю
 	public LayerMask whatIsGround;
 	//переменная для установки макс. скорости персонажа
@@ -37,6 +37,7 @@ public class characterControllerScript : MonoBehaviour {
 	private CameraSmooth camScript;
 	//blood
 	public Transform bloodPrefab;
+	public bool ouch = false;
 	//GUI info
 	public int hp;
 	public int Maxhp = 100;
@@ -57,7 +58,7 @@ public class characterControllerScript : MonoBehaviour {
 	{
 		allive = true;
 		Damage = 10;
-		hp = 100;
+		hp = Maxhp;
 		money = startmoney;
 		Physics2D.gravity = new Vector2 (0, -30f);
 		anim = GetComponent<Animator>();
@@ -84,7 +85,8 @@ public class characterControllerScript : MonoBehaviour {
 			//if (!isGrounded) {
 			//		if (anim.GetFloat ("Speed") > 8f)
 			//			maxSpeed = maxSpeedlittle;
-			//} else
+			//} 
+			//else
 			//		maxSpeed = maxSpeedstandart;
 		}
 	}
@@ -114,8 +116,8 @@ public class characterControllerScript : MonoBehaviour {
 			//if (Input.GetKeyDown (KeyCode.P))
 			//		TakeDmg (1);
 			// == 
-			//используем Input.GetAxis для оси Х. метод возвращает значение оси в пределах от -1 до 1.
-			//при стандартных настройках проекта 
+			//используем Input.GetAxis для оси Х. метод возвращает значение оси в пределах от -1 до 1
+			//при стандартных настройках проекта
 			//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
 			//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
 			float move = Input.GetAxis ("Horizontal");
@@ -271,6 +273,7 @@ public class characterControllerScript : MonoBehaviour {
 		hp -= Dmg;
 		var GUID = Instantiate(GUIdamage) as Transform;
 		GUID.transform.position = transform.position;
+		ouch = true;
 		return true;
 	}
 	
