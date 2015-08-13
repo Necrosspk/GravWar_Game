@@ -1,11 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\MoveScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\CameraSmooth.cs">
     <Files>
-      <File FileName="Assets\Script\MoveScript.cs" Line="26" Column="91" />
+      <File FileName="Assets\Script\ArcherWar.cs" Line="340" Column="3" />
+      <File FileName="Assets\Script\CameraSmooth.cs" Line="37" Column="13" />
+      <File FileName="Assets\Script\MoveScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\OnGUIs.cs" Line="27" Column="58" />
-      <File FileName="Assets\Script\characterControllerScript.cs" Line="170" Column="6" />
-      <File FileName="Assets\Script\ArcherWar.cs" Line="57" Column="21" />
+      <File FileName="Assets\Script\characterControllerScript.cs" Line="106" Column="49" />
+      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="289" Column="4" />
+      <File FileName="Assets\Script\AttackTriger.cs" Line="76" Column="33" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

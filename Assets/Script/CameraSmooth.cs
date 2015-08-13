@@ -7,7 +7,9 @@ public class CameraSmooth : MonoBehaviour {
 	public Transform target;
 	public Camera camera1;
 	public int rotate = 1;
-	public float rotateTime = 0.5f;
+	public float rotateTime = 0.5f;	
+	private float kdSpinMax;
+	private float kdSpinTimer = 0f;
 	// Update is called once per frame
 	void Update () 
 	{
@@ -20,18 +22,22 @@ public class CameraSmooth : MonoBehaviour {
 			
 			transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
 		}
-		if (Input.GetKeyDown (KeyCode.Q)) 
+
+		kdSpinTimer += Time.deltaTime;
+		if (Input.GetKeyDown (KeyCode.Q)&& kdSpinTimer >= kdSpinMax) 
 		{
 			rotate++;
 			if (rotate > 4)
 					rotate = 1;
+			kdSpinTimer = 0;
 		}
 
-		if (Input.GetKeyDown (KeyCode.E)) 
+		if (Input.GetKeyDown (KeyCode.E)&& kdSpinTimer >= kdSpinMax) 
 		{
 			rotate--;
 			if (rotate < 1)
 				rotate = 4;
+			kdSpinTimer = 0;
 		}
 
 		switch (rotate)
@@ -58,5 +64,10 @@ public class CameraSmooth : MonoBehaviour {
 		}
 		}
 		
+	}
+
+	public void SetKD(float kd)
+	{
+		kdSpinMax = kd;
 	}
 }

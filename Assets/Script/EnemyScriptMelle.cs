@@ -14,7 +14,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 	//переменная для установки макс. скорости персонажа
 	public float maxSpeed = 3f; 
 	//переменная для определения направления персонажа вправо/влево
-	private bool isFacingRight = true;
+	public bool isFacingRight = true;
 	//ссылка на компонент анимаций
 	private Animator anim;
 	//PlayerInfo
@@ -29,6 +29,8 @@ public class EnemyScriptMelle : MonoBehaviour {
 	public Transform bloodPrefab;
 	//GUI info
 	public int hp;
+	private TextMesh textdmg;
+	public Transform GUIdamage;
 
 	private CameraSmooth camScript;
 	private float move;
@@ -46,8 +48,12 @@ public class EnemyScriptMelle : MonoBehaviour {
 	public bool despawnOn = false;
 	public float despawnT = 20f;
 	private float scaleDespawn;
-
-	
+	//Debuffs
+	private float StunTimer;
+	private bool Stun;
+	//--
+	private float StandTimer;
+	private bool Stand;
 	/// <summary>
 	/// Начальная инициализация
 	/// </summary>
@@ -263,7 +269,26 @@ public class EnemyScriptMelle : MonoBehaviour {
 				DestroyObject(this.gameObject);
 		}
 
-			
+		//DEBUFFS
+		//Stun
+		if (Stun && StunTimer >= 0) 
+		{
+			move = 0;
+			attack = false;
+			StunTimer -= Time.deltaTime;
+		} else
+		{
+			Stun=false;
+		}
+		//Stand
+		if (Stand && StandTimer >= 0) 
+		{
+			move = 0;
+			StandTimer -= Time.deltaTime;
+		} else
+		{
+			Stand=false;
+		}
 
 	}
 	public bool TakeDmg(int Dmg)
@@ -271,18 +296,30 @@ public class EnemyScriptMelle : MonoBehaviour {
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
 		bloodTranform.position = transform.position;
 		hp -= Dmg;
+		textdmg = GUIdamage.GetComponent<TextMesh> ();
+		textdmg.text = "-"+Dmg.ToString ();
+		var GUID = Instantiate(GUIdamage) as Transform;
+		GUID.transform.position = transform.position;
 		return true;
 	}
 
-	void OnGUI(){
-
-		if (!allive && smoothtext>=0) {
+	void OnGUI()
+	{
+		if (!allive && smoothtext>=0)
 			GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + loot.ToString()+"$");
-				
-				}  
+	}
 
-				
-
-		}
+	public void StunD (float time)
+	{
+		StunTimer = time;
+		Stun = true;
+		//return true;
+	}
+	public void StandD (float time)
+	{
+		StandTimer = time;
+		Stand = true;
+		//return true;
+	}
 
 }

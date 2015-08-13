@@ -14,7 +14,7 @@ public class ArcherWar : MonoBehaviour
 	// проверка стоит ли у него на земле
 	private bool stayGroundArcher = false;
 	//Turn - поворот
-	public int turnArcher =4;
+	public int turnArcher =1;
 	public int moveitArcher =0;
 	public int lootArcher;
 	public bool lootableArcher;
@@ -39,12 +39,17 @@ public class ArcherWar : MonoBehaviour
 	private float Turntimer = 0.3f;
 	public Transform playerTransformArcher;
 	private float smoothText;
-	public GameObject bloodPrefab;
+	public Transform bloodPrefab;
+	//GUI
+	private TextMesh textdmg;
+	public Transform GUIdamage;
 
 	public bool despawnOn = false;
 	public float despawnT = 20f;
 	private float scaleDespawn;
-
+	//Debuffs
+	private float StunTimer;
+	private bool Stun;
 
 	// Use this for initialization
 	void Start () 
@@ -77,8 +82,8 @@ public class ArcherWar : MonoBehaviour
 		{
 			if (animArcher.GetFloat("Speed")>8f)moveArcher = 1f;
 		}
-		else
-			moveArcher = speedArcher;
+		//else
+			//moveArcher = speedArcher;
 	}
 
 	/// <summary>
@@ -123,26 +128,23 @@ public class ArcherWar : MonoBehaviour
 					else
 						moveArcher = 1;
 				}
-				if (turnArcher == 3 && ISeeYouArcher) 
-				{
+				if (turnArcher == 3 && ISeeYouArcher) {
 					if (this.transform.position.x - playerTransformArcher.position.x > 2.2f)			
 						moveArcher = 1;
 					else
 						moveArcher = -1;
 				}
-				if (turnArcher == 2 && ISeeYouArcher) 
-				{
+				if (turnArcher == 2 && ISeeYouArcher) {
 					if (this.transform.position.y - playerTransformArcher.position.y > 2.2f)			
 						moveArcher = -1;
 					else
 						moveArcher = 1;
 				}
-				if (turnArcher == 4 && ISeeYouArcher) 
-				{
+				if (turnArcher == 4 && ISeeYouArcher) {
 					if (this.transform.position.y - playerTransformArcher.position.y > 2.2f)			
 						moveArcher = 1;
 					else
-						moveArcher= -1;
+						moveArcher = -1;
 				}
 			} 
 			else if (alliveArcher && playerscrArcher.allive) // если меньше или равна трем метрам
@@ -299,13 +301,26 @@ public class ArcherWar : MonoBehaviour
 			if (despawnT <= 0)
 				DestroyObject(this.gameObject);
 		}
+		if (Stun && StunTimer >= 0) 
+		{
+			moveArcher = 0;
+			attackArcher = false;
+			StunTimer -= Time.deltaTime;
+		} else
+		{
+			Stun=false;
+		}
 	}
 
 	public bool TakeDmg(int Dmg)
 	{
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
-		//bloodTranform.position = transform.position;
+		bloodTranform.position = transform.position;
 		hp -= Dmg;
+		textdmg = GUIdamage.GetComponent<TextMesh> ();
+		textdmg.text = "-"+Dmg.ToString ();
+		var GUID = Instantiate(GUIdamage) as Transform;
+		GUID.transform.position = transform.position;
 		return true;
 	}
 	
@@ -315,5 +330,12 @@ public class ArcherWar : MonoBehaviour
 		{
 			GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + lootArcher.ToString()+"$");
 		}  
+	}
+
+	public void StunD (float time)
+	{
+		StunTimer = time;
+		Stun = true;
+		//return true;
 	}
 }

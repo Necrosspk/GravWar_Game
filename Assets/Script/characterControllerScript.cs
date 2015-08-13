@@ -26,11 +26,17 @@ public class characterControllerScript : MonoBehaviour {
 	public float timerturn = 0f;
 	//Base
 	public int Damage = 8;
-	public float spddmg = 0.5f;
+	public float spddmg = 0.5f; //MainAttack
+	public float spddmg2 = 7f;//Spell 1
+	public float spddmg3 = 8f;//Spell 2
+	public float spddmg4 = 21f;//Spell 3
 	public float jumpheight = 500;
 	public bool allive;
 	public bool attack;
+	private bool fall = false;
+	private float falldmgvelocity;
 	//GUI
+	private TextMesh textdmg;
 	public Transform GUIdamage;
 	//Camrta
 	public GameObject camera1;
@@ -63,7 +69,8 @@ public class characterControllerScript : MonoBehaviour {
 		Physics2D.gravity = new Vector2 (0, -30f);
 		anim = GetComponent<Animator>();
 		
-		camScript=camera1.GetComponent<CameraSmooth>();
+		camScript=camera1.GetComponent<CameraSmooth>();		
+		camScript.SetKD(KDturn);
 	}
 	
 	/// <summary>
@@ -80,7 +87,10 @@ public class characterControllerScript : MonoBehaviour {
 			//устанавливаем соответствующую переменную в аниматоре
 			anim.SetBool ("Ground", isGrounded);
 			//устанавливаем в аниматоре значение скорости взлета/падения
+			if (turn== 1 || turn == 3)
 			anim.SetFloat ("vSpeed", rigidbody2D.velocity.y);
+			if (turn== 2 || turn == 4)
+				anim.SetFloat ("vSpeed", rigidbody2D.velocity.x);
 			//если персонаж в прыжке - выход из метода, чтобы не выполнялись действия, связанные с бегом
 			//if (!isGrounded) {
 			//		if (anim.GetFloat ("Speed") > 8f)
@@ -88,6 +98,57 @@ public class characterControllerScript : MonoBehaviour {
 			//} 
 			//else
 			//		maxSpeed = maxSpeedstandart;
+
+			if (turn== 1 || turn == 3)
+				if (rigidbody2D.velocity.y > 16f && !isGrounded)
+				{
+					fall = true;
+					falldmgvelocity = rigidbody2D.velocity.y-10;
+				}
+			if (turn== 1 || turn == 3)
+				if (rigidbody2D.velocity.y < -16f && !isGrounded)
+				{
+					fall = true;
+					falldmgvelocity = -rigidbody2D.velocity.y+10;
+				}
+			if (turn== 2 || turn == 4)
+				if (rigidbody2D.velocity.x > 16f && !isGrounded)
+				{
+					fall = true;
+					falldmgvelocity = rigidbody2D.velocity.x-10;
+				}
+			if (turn== 2 || turn == 4)
+				if (rigidbody2D.velocity.x < -16f && !isGrounded)
+				{
+					fall = true;
+					falldmgvelocity = -rigidbody2D.velocity.x+10f;
+				}
+
+			if (turn== 1 || turn == 3)
+				if (isGrounded && fall)
+				{
+					TakeDmg((int)(Maxhp/50)*(int)falldmgvelocity);
+					fall = false;
+				}
+			if (turn== 1 || turn == 3)
+				if (isGrounded && fall)
+				{
+					TakeDmg(-(int)(Maxhp/50)*(int)falldmgvelocity);
+					fall = false;
+				}
+			if (turn== 2 || turn == 4)
+				if (isGrounded && fall)
+				{
+					TakeDmg((int)(Maxhp/50)*(int)falldmgvelocity);
+					fall = false;
+				}
+			if (turn== 2 || turn == 4)
+				if (isGrounded && fall)
+				{
+					TakeDmg(-(int)(Maxhp/(Maxhp/2))*(int)falldmgvelocity);
+					fall = false;
+				}
+
 		}
 	}
 	
@@ -143,8 +204,6 @@ public class characterControllerScript : MonoBehaviour {
 				moveit = 0;
 				Flip ();
 			}
-			
-			
 			timerturn += Time.deltaTime;
 			if (Input.GetKeyDown (KeyCode.Q) || Input.GetKeyDown (KeyCode.E)) {
 				turn = camScript.rotate;
@@ -271,6 +330,21 @@ public class characterControllerScript : MonoBehaviour {
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
 		bloodTranform.position = transform.position;
 		hp -= Dmg;
+		textdmg = GUIdamage.GetComponent<TextMesh> ();
+		textdmg.text = "-"+Dmg.ToString ();
+		var GUID = Instantiate(GUIdamage) as Transform;
+		GUID.transform.position = transform.position;
+		ouch = true;
+		return true;
+	}
+
+	public bool FallDmg(int Dmg)
+	{
+		var bloodTranform = Instantiate (bloodPrefab) as Transform;
+		bloodTranform.position = transform.position;
+		hp -= Dmg;
+		textdmg = GUIdamage.GetComponent<TextMesh> ();
+		textdmg.text = "-"+Dmg.ToString ();
 		var GUID = Instantiate(GUIdamage) as Transform;
 		GUID.transform.position = transform.position;
 		ouch = true;
@@ -362,6 +436,7 @@ public class characterControllerScript : MonoBehaviour {
 		KDrotate -= 0.3f;
 		item_id = 0;
 		Debug.Log("Cooldown of rotate decrease to: " + KDrotate + "!");
+		camScript.SetKD(KDturn);
 		return KDrotate;
 	}
 	// +jump height
