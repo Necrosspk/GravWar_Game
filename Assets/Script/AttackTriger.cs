@@ -8,6 +8,7 @@ public class AttackTriger : MonoBehaviour {
 	private bool attacked4;
 	private characterControllerScript playerSCR;
 	public int dmg;	
+	public int dmg2;
 	public AudioSource Punch;
 	private EnemyScriptMelle EnSCR;
 	private float spddmg;
@@ -73,7 +74,7 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked4)
 			{
 				Punch.Play();
-				EnSCR.TakeDmg((int)(dmg*1.5));		
+				EnSCR.TakeDmg((int)(dmg*1.7));		
 				attacked = false;
 			}
 			//Debug.Log("WOW!");
@@ -119,7 +120,7 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked4)
 			{
 				Punch.Play();
-				ArcherScript.TakeDmg((int)(dmg*1.5));		
+				ArcherScript.TakeDmg((int)(dmg*1.7));		
 				attacked = false;
 			}
 			//Debug.Log("WOW!");
@@ -146,7 +147,7 @@ public class AttackTriger : MonoBehaviour {
 		time2 -= Time.deltaTime;
 		time3 -= Time.deltaTime;
 		time4 -= Time.deltaTime;
-		dmg = playerSCR.Damage;		
+		dmg = playerSCR.Damage;
 		spddmg = playerSCR.spddmg;
 		spddmg2 = playerSCR.spddmg2;
 		spddmg3 = playerSCR.spddmg3;

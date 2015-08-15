@@ -50,6 +50,7 @@ public class ArcherWar : MonoBehaviour
 	//Debuffs
 	private float StunTimer;
 	private bool Stun;
+	private CreatureDirector director;
 
 	// Use this for initialization
 	void Start () 
@@ -58,6 +59,10 @@ public class ArcherWar : MonoBehaviour
 		lootArcher = Random.Range (10, 18);
 		camScriptArcher = (CameraSmooth)FindObjectOfType (typeof(CameraSmooth));
 		characterControllerScript player = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
+		//+ on directorAI
+		director = (CreatureDirector)FindObjectOfType (typeof(CreatureDirector));
+		director.countCreature++;
+		//
 		playerTransformArcher = player.transform;
 		playerscrArcher = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
 		animArcher = GetComponent<Animator>();
@@ -290,6 +295,7 @@ public class ArcherWar : MonoBehaviour
 			this.rigidbody2D.isKinematic=true;
 			playerscrArcher.money += lootArcher;
 			smoothText=1.0f;
+			director.countCreature--;
 			lootableArcher=false;
 		}
 		smoothText -= Time.deltaTime;

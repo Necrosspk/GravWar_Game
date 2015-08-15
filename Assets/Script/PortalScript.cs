@@ -4,16 +4,18 @@ using System.Collections;
 public class PortalScript : MonoBehaviour {
 
 	public Transform NPCcommon;
+	public Transform NPCArcher;
 	public int place;
 	public float MainTimer=0f; //60s
 	public float WavesTimer=0f; // 20,15,12,7,6 s
 	public int WavesNumber; // 5s
 	public int RandSpawnNum; //8-10
 	public int MonsterCount;
-	private bool isStarted;
+	public bool isStarted;
 	private bool entered;
-	private bool ended = false;
+	public bool ended = false;
 	private bool press = false;
+	public int NPCallive;
 
 	private Vector3[] Places1;
 	private Vector3[] Places2;
@@ -165,16 +167,20 @@ public class PortalScript : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if (WavesNumber >= 6 && MainTimer>0)
+		if (WavesNumber >= 6 && MainTimer<=0)
 			ended = true;
 
-		if (Input.GetKeyDown (KeyCode.F) && ended && entered) 
+		if (Input.GetKeyDown (KeyCode.F) && ended && entered && NPCallive<=0) 
 		{
 			press=true;
 			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 60), "!!You complite first stage!!");
 			if (GUI.Button (new Rect (Screen.width / 2 - 130, Screen.height / 2 - 20, 260, 20), "Vse huinya Misha, Davai zanovo))"))
 				Application.LoadLevel ("testStage");
 			//Time.timeScale = 0;
+		}
+		if (NPCallive > 0) 
+		{
+			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Now allive is "+NPCallive+". Kill them all!!");
 		}
 		if (!isStarted && entered)
 				GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Press 'F' to activate Portal (and preapre to DIE)");

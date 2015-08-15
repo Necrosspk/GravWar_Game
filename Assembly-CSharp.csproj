@@ -61,6 +61,7 @@
      <Compile Include="Assets\Script\BorderRightForEnemy.cs" />
      <Compile Include="Assets\Script\CameraSmooth.cs" />
      <Compile Include="Assets\Script\Chests.cs" />
+     <Compile Include="Assets\Script\CreatureDirector.cs" />
      <Compile Include="Assets\Script\Destroykaboom.cs" />
      <Compile Include="Assets\Script\EnemyMelleAttackTriger.cs" />
      <Compile Include="Assets\Script\EnemyScript.cs" />
@@ -75,6 +76,7 @@
      <Compile Include="Assets\Script\OnGUIs.cs" />
      <Compile Include="Assets\Script\PortalScript.cs" />
      <Compile Include="Assets\Script\ShotScript.cs" />
+     <Compile Include="Assets\Script\SpawnerScript.cs" />
      <Compile Include="Assets\Script\TrigerShot.cs" />
      <Compile Include="Assets\Script\WeaponScript.cs" />
      <Compile Include="Assets\Script\characterControllerScript.cs" />

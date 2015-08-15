@@ -81,6 +81,7 @@ public class characterControllerScript : MonoBehaviour {
 	/// 
 	private void FixedUpdate()
 	{
+		//Physics2D.IgnoreCollision(
 		if (allive) {
 			//определяем, на земле ли персонаж
 			isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 

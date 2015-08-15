@@ -54,6 +54,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 	//--
 	private float StandTimer;
 	private bool Stand;
+	private CreatureDirector director;
 	/// <summary>
 	/// Начальная инициализация
 	/// </summary>
@@ -64,6 +65,10 @@ public class EnemyScriptMelle : MonoBehaviour {
 		loot = Random.Range (7, 14);
 		camScript = (CameraSmooth)FindObjectOfType (typeof(CameraSmooth));
 		characterControllerScript player = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
+		//+ on directorAI
+		director = (CreatureDirector)FindObjectOfType (typeof(CreatureDirector));
+		director.countCreature++;
+		//
 		playerTransform = player.transform;
 		playerscr = (characterControllerScript)FindObjectOfType(typeof(characterControllerScript));
 		anim = GetComponent<Animator>();
@@ -226,25 +231,65 @@ public class EnemyScriptMelle : MonoBehaviour {
 			}
 		}
 
-		//если персонаж на земле и нажат пробел...
-//		if (isGrounded) 
-//		{
-//			//устанавливаем в аниматоре переменную в false
-//			anim.SetBool("Ground", false);
-//			//прикладываем силу вверх, чтобы персонаж подпрыгнул
-//			if (turn==1)
-//				if((this.transform.position.y-playerTransform.position.y>0.2f) || (this.transform.position.y-playerTransform.position.y<-0.2f))
-//				rigidbody2D.AddForce(new Vector2(0, 500));		
-//			else if (turn==2)
-//				if((this.transform.position.x-playerTransform.position.x>0.2f) || (this.transform.position.x-playerTransform.position.x<-0.2f))
-//				rigidbody2D.AddForce(new Vector2(-500, 0));
-//			else if (turn==3)
-//				if((this.transform.position.y-playerTransform.position.y>0.2f) || (this.transform.position.y-playerTransform.position.y<-0.2f))
-//				rigidbody2D.AddForce(new Vector2(0, -500));
-//			else if (turn==4)
-//				if((this.transform.position.x-playerTransform.position.x>0.2f) || (this.transform.position.x-playerTransform.position.x<-0.2f))
-//				rigidbody2D.AddForce(new Vector2(500,0));
-//		}
+		if (Vector3.Distance (playerTransform.position, this.transform.position) <= 2.2f && allive) 
+		{
+			if (transform.position.x < playerTransform.position.x && !isFacingRight)
+			{
+				if (turn == 1)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.x > playerTransform.position.x && isFacingRight)
+			{
+				if (turn == 1)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.y < playerTransform.position.y && !isFacingRight)
+			{
+				if (turn == 2)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.y > playerTransform.position.y && isFacingRight)
+			{
+				if (turn == 2)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.x > playerTransform.position.x && !isFacingRight)
+			{
+				if (turn == 3)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.x < playerTransform.position.x && isFacingRight)
+			{
+				if (turn == 3)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.y > playerTransform.position.y && !isFacingRight)
+			{
+				if (turn == 4)
+				{
+					Flip ();
+				}
+			}
+			if (transform.position.y < playerTransform.position.y && isFacingRight)
+			{
+				if (turn == 4)
+				{
+					Flip ();
+				}
+			}
+		}
 
 		if (hp <= 0)
 			allive=false;
@@ -256,7 +301,8 @@ public class EnemyScriptMelle : MonoBehaviour {
 			this.rigidbody2D.isKinematic=true;
 			BreathAU.Stop ();
 			playerscr.money+=loot;
-			smoothtext=1.0f;			
+			smoothtext=1.0f;	
+			director.countCreature--;
 			lootable=false;
 				}
 		smoothtext -= Time.deltaTime;
