@@ -44,11 +44,14 @@ public class characterControllerScript : MonoBehaviour {
 	//blood
 	public Transform bloodPrefab;
 	public bool ouch = false;
+	public bool isAttack = false;
 	//GUI info
 	public int hp;
 	public int Maxhp = 100;
 	public int money;
 	public int startmoney = 500;
+	//public GameObject UIMoney;
+	//private TextMesh UIMoneyText;
 	
 	// ITEMS
 	public int item_id = 0;
@@ -56,6 +59,11 @@ public class characterControllerScript : MonoBehaviour {
 	private float item_gui_time = 2f;
 	private float item_gui_timerstop = 0f;
 	private bool item_gui_timer_on = false;
+	public int[] StacksItemsID = new int [30];
+	private float item7Timer;
+
+	//Stairs
+	private bool OnStairs = false;
 	
 	/// <summary>
 	/// Начальная инициализация
@@ -71,6 +79,8 @@ public class characterControllerScript : MonoBehaviour {
 		
 		camScript=camera1.GetComponent<CameraSmooth>();		
 		camScript.SetKD(KDturn);
+
+//		UIMoneyText = UIMoney.GetComponent<TextMesh> ();
 	}
 	
 	/// <summary>
@@ -79,10 +89,31 @@ public class characterControllerScript : MonoBehaviour {
 	/// </summary>
 	/// 
 	/// 
+	void OnTriggerEnter2D (Collider2D other)
+	{
+		//Лестницы
+		if (other.gameObject.tag == "StairsV" && (turn == 1 || turn == 3) && (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.S))) 
+		{
+			//Debug.Log ("Stairs id here");
+			rigidbody2D.isKinematic = true;
+			OnStairs = true;
+		}
+	}
+
+	void OnTriggerExit2D (Collider2D other)
+	{
+		//Лестницы
+		if (other.gameObject.tag == "StairsV") 
+		{
+			//Debug.Log ("Stairs id here");
+			rigidbody2D.isKinematic = false;
+			OnStairs = false;
+		}
+	}
 	private void FixedUpdate()
 	{
 		//Physics2D.IgnoreCollision(
-		if (allive) {
+		if (allive && !OnStairs) {
 			//определяем, на земле ли персонаж
 			isGrounded = Physics2D.OverlapCircle (groundCheck.position, groundRadius, whatIsGround); 
 			//устанавливаем соответствующую переменную в аниматоре
@@ -104,25 +135,25 @@ public class characterControllerScript : MonoBehaviour {
 				if (rigidbody2D.velocity.y > 16f && !isGrounded)
 				{
 					fall = true;
-					falldmgvelocity = rigidbody2D.velocity.y-10;
+					falldmgvelocity = rigidbody2D.velocity.y-12;
 				}
 			if (turn== 1 || turn == 3)
 				if (rigidbody2D.velocity.y < -16f && !isGrounded)
 				{
 					fall = true;
-					falldmgvelocity = -rigidbody2D.velocity.y+10;
+					falldmgvelocity = -rigidbody2D.velocity.y-12;
 				}
 			if (turn== 2 || turn == 4)
 				if (rigidbody2D.velocity.x > 16f && !isGrounded)
 				{
 					fall = true;
-					falldmgvelocity = rigidbody2D.velocity.x-10;
+					falldmgvelocity = rigidbody2D.velocity.x-12;
 				}
 			if (turn== 2 || turn == 4)
 				if (rigidbody2D.velocity.x < -16f && !isGrounded)
 				{
 					fall = true;
-					falldmgvelocity = -rigidbody2D.velocity.x+10f;
+					falldmgvelocity = -rigidbody2D.velocity.x-12f;
 				}
 
 			if (turn== 1 || turn == 3)
@@ -171,28 +202,50 @@ public class characterControllerScript : MonoBehaviour {
 	
 	private void Update()
 	{
-		if (allive) {
+		if (allive && OnStairs) 
+		{
+			//Jump down from stairs
+			if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.A)||Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E))
+			{
+				rigidbody2D.isKinematic=false;
+				OnStairs=false;
+			}
+			if (Input.GetKey(KeyCode.W))
+			{
+				if (turn == 1)
+					transform.position = new Vector2(transform.position.x,transform.position.y + 0.05f);
+				else if (turn == 2)
+					transform.position = new Vector2(transform.position.x-0.05f,transform.position.y);
+				else if (turn == 3)
+					transform.position = new Vector2(transform.position.x,transform.position.y - 0.05f);
+				else if (turn == 4)
+					transform.position = new Vector2(transform.position.x+0.05f,transform.position.y);
+			}
+			if (Input.GetKey(KeyCode.S))
+			{
+				if (turn == 1)
+					transform.position = new Vector2(transform.position.x,transform.position.y - 0.05f);
+				else if (turn == 2)
+					transform.position = new Vector2(transform.position.x+0.05f,transform.position.y);
+				else if (turn == 3)
+					transform.position = new Vector2(transform.position.x,transform.position.y + 0.05f);
+				else if (turn == 4)
+					transform.position = new Vector2(transform.position.x-0.05f,transform.position.y);
+			}
+		}
+
+		if (allive) 
+		{
 			if (hp > Maxhp)
 				hp = Maxhp;
-			// == DEBUG 
-			//if (Input.GetKeyDown (KeyCode.P))
-			//		TakeDmg (1);
-			// == 
-			//используем Input.GetAxis для оси Х. метод возвращает значение оси в пределах от -1 до 1
-			//при стандартных настройках проекта
+
 			//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
 			//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
 			float move = Input.GetAxis ("Horizontal");
 			
-			
 			//в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
 			//приэтом нам нужен модуль значения
 			anim.SetFloat ("Speed", Mathf.Abs (move));
-			
-			//if (anim.i) {
-			//turnison = false;
-			//	}
-			
 			
 			//если нажали клавишу для перемещения вправо, а персонаж направлен влево
 			if (move > 0 && !isFacingRight) {
@@ -260,26 +313,12 @@ public class characterControllerScript : MonoBehaviour {
 				else if (turn == 4)
 					rigidbody2D.AddForce (new Vector2 (jumpheight, 0));
 			}
-			
-			//		// 5 - Стрельба
-			//		bool shoot = Input.GetButtonDown("Fire1");
-			//		shoot |= Input.GetButtonDown("Fire2");
-			//		// Замечание: Для пользователей Mac, Ctrl + стрелка - это плохая идея
-			//		
-			//		if (shoot)
-			//		{
-			//			WeaponScript weapon = GetComponent<WeaponScript>();
-			//			if (weapon != null)
-			//			{
-			//				// ложь, так как игрок не враг
-			//				weapon.Attack(false);
-			//			}
-			//		}
 		}
 		if (hp <= 0) {
 			allive = false;
 			anim.SetBool("Dead",true);
 		}
+
 		// /////////////////////////////////
 		// ITEMS switcher-------------------
 		// /////////////////////////////////
@@ -288,48 +327,97 @@ public class characterControllerScript : MonoBehaviour {
 		case 0:
 			break;
 		case 1:
+			StacksItemsID[1]++;
 			item_gui = 1;
 			Maxhp = HpItem_id_1(Maxhp);
 			hp = Maxhp;
 			item_gui_timer_on = true;
 			break;
 		case 2:
+			StacksItemsID[2]++;
 			item_gui = 2;
 			Damage = DmgItem_id_2(Damage);
 			item_gui_timer_on = true;
 			break;
 		case 3:
+			StacksItemsID[3]++;
 			item_gui = 3;
 			spddmg = SpdDmgItem_id_3(spddmg);
 			item_gui_timer_on = true;
 			break;
 		case 4:
+			StacksItemsID[4]++;
 			item_gui = 4;
 			maxSpeed = SpdItem_id_4(maxSpeed);
 			item_gui_timer_on = true;
 			break;
 		case 5: 
+			StacksItemsID[5]++;
 			item_gui = 5;
 			KDturn = RotateKDItem_id_5(KDturn);
 			item_gui_timer_on = true;
 			break;
 		case 6:
+			StacksItemsID[6]++;
 			item_gui = 6;
 			jumpheight = JumpHeightItem_id_6(jumpheight);
 			item_gui_timer_on = true;
 			break;
+		case 7:
+			StacksItemsID[7]++;
+			item_gui = 7;
+			RegenerateItem_id_7();
+			item_gui_timer_on = true;
+			item7Timer=6f/StacksItemsID[7];
+			break;
+		case 8:
+			StacksItemsID[8]++;
+			item_gui = 8;
+			CritItem_id_8 ();
+			break;
+		case 9:
+			StacksItemsID[9]++;
+			item_gui = 9;
+			HpDropItem_id_9 ();
+			break;
+		case 10:
+			StacksItemsID[10]++;
+			item_gui = 10;
+			ArmorItem_id_10 ();
+			break;
 		}
+		//
+		//Timers for pereodic items
+		//
+		if (StacksItemsID [7] > 0) 
+		{
+			item7Timer -= Time.deltaTime;
+			if (item7Timer <= 0)
+			{
+				hp+=1;
+				item7Timer=6f/StacksItemsID[7];
+			}
+		}
+		//
+
 		// TIMER FOR GUI
 		if (item_gui_timer_on)
 			item_gui_timerstop += Time.deltaTime;
 		else 
 			item_gui_timerstop = 0f;
 		//\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+		// GUI INFO
+		//UIMoneyText.text = money.ToString ();
 	}
 	public bool TakeDmg(int Dmg)
 	{
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
 		bloodTranform.position = transform.position;
+		if (StacksItemsID [10] > 0 && StacksItemsID [10] < 5)
+			Dmg = (int)(Dmg * (1- (0.07 * StacksItemsID [10])));
+		if (StacksItemsID [10] >= 5)
+			Dmg = (int)(Dmg * 0.65);
 		hp -= Dmg;
 		textdmg = GUIdamage.GetComponent<TextMesh> ();
 		textdmg.text = "-"+Dmg.ToString ();
@@ -392,6 +480,30 @@ public class characterControllerScript : MonoBehaviour {
 			else 
 				item_gui_timer_on = false;
 			break;
+		case 7:
+			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
+				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"Slowly regenerate hp!");
+			else 
+				item_gui_timer_on = false;
+			break;
+		case 8:
+			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
+				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"+10% chance to double damage!");
+			else 
+				item_gui_timer_on = false;
+			break;
+		case 9:
+			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
+				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"NPC now drop HP!");
+			else 
+				item_gui_timer_on = false;
+			break;
+		case 10:
+			if(item_gui_timerstop <= item_gui_time && item_gui_timer_on == true)
+				GUI.Box(new Rect(Screen.width/2-100,Screen.height/2-45,200,20),"Decrease damage to you on 10%!");
+			else 
+				item_gui_timer_on = false;
+			break;
 		}
 	}
 	//------------------------------------------------------------------------- \\
@@ -418,7 +530,7 @@ public class characterControllerScript : MonoBehaviour {
 	// +spd dmg
 	private float SpdDmgItem_id_3 (float spddmg)
 	{
-		spddmg -= 0.03f;
+		spddmg -= 0.1f;
 		item_id = 0;
 		Debug.Log("Attack speed increase to: " + spddmg + "!");
 		return spddmg;
@@ -447,6 +559,28 @@ public class characterControllerScript : MonoBehaviour {
 		item_id = 0;
 		Debug.Log("Jump height increase to: " + jumpheight + "!");
 		return jumpheight;
+	}
+	private void RegenerateItem_id_7 () // +5%
+	{
+		item_id = 0;
+		Debug.Log("Regeneration!");
+	}
+	private void CritItem_id_8 () // +5%
+	{
+		item_id = 0;
+		Debug.Log("+10% double damage!");
+	}
+
+	private void HpDropItem_id_9 () // +5%
+	{
+		item_id = 0;
+		Debug.Log("NPC now when die drop HP!");
+	}
+
+	private void ArmorItem_id_10 () // +5%
+	{
+		item_id = 0;
+		Debug.Log("Decrease damage to you on 10%");
 	}
 	// +jump count
 	// +red

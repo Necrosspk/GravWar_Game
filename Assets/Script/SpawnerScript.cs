@@ -20,7 +20,7 @@ public class SpawnerScript : MonoBehaviour {
 	public bool DoSpawn()
 	{
 		int randCreature = Random.Range (0, 100);
-		if (Vector3.Distance (player.position, this.transform.position) < 5.2f) 
+		if (Vector3.Distance (player.position, this.transform.position) < 6.2f) 
 		{
 			if (randCreature < 30) 
 			{

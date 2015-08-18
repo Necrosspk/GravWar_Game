@@ -83,7 +83,10 @@ public class PortalScript : MonoBehaviour {
 	void Update () {
 
 		if (Input.GetKeyDown (KeyCode.F) && entered && !ended && !isStarted) 
+		{
+			entered = false;
 			StartEscapeEvent ();
+		}
 
 		WavesTimer -= Time.deltaTime;//
 		MainTimer -= Time.deltaTime; //
@@ -167,8 +170,11 @@ public class PortalScript : MonoBehaviour {
 	}
 
 	void OnGUI(){
-		if (WavesNumber >= 6 && MainTimer<=0)
+		if (WavesNumber >= 6 && MainTimer <= 0) 
+		{
 			ended = true;
+			this.collider2D.enabled = true;
+		}
 
 		if (Input.GetKeyDown (KeyCode.F) && ended && entered && NPCallive<=0) 
 		{
@@ -182,9 +188,9 @@ public class PortalScript : MonoBehaviour {
 		{
 			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Now allive is "+NPCallive+". Kill them all!!");
 		}
-		if (!isStarted && entered)
+		if (entered && !isStarted)
 				GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Press 'F' to activate Portal (and preapre to DIE)");
-		if (entered && ended && !press)
+		if (entered && ended && !press && NPCallive<=0)
 			GUI.Box (new Rect (Screen.width / 2 - 140, Screen.height / 2 - 45, 280, 25), "Press 'F' to next level");
 	
 	

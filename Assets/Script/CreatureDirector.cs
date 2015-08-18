@@ -60,47 +60,47 @@ public class CreatureDirector : MonoBehaviour {
 		timer2 -= Time.deltaTime;
 		switch ((int)timer)
 		{
-		case 5:
-				maxCountCreature = 3;
-				timeToSpawn = 5f;
-			break;
 		case 15:
-				maxCountCreature = 5;
-				timeToSpawn = 4f;
+				maxCountCreature = 3;
+				timeToSpawn = 7f;
 			break;
-		case 45:
-				maxCountCreature = 8;
-				timeToSpawn = 3f;
+		case 30:
+				maxCountCreature = 5;
+				timeToSpawn = 6.5f;
 			break;
 		case 80:
-				maxCountCreature = 12;
-				timeToSpawn = 2.5f;
+				maxCountCreature = 8;
+				timeToSpawn = 6f;
 			break;
-		case 120:
+		case 150:
+				maxCountCreature = 12;
+				timeToSpawn = 5f;
+			break;
+		case 220:
 				maxCountCreature = 16;
+				timeToSpawn = 4f;
+			break;
+		case 300:
+				maxCountCreature = 17;
+				timeToSpawn = 3f;
+			break;
+		case 380:
+				maxCountCreature = 18;
 				timeToSpawn = 2f;
 			break;
-		case 160:
-				maxCountCreature = 17;
-				timeToSpawn = 1.5f;
-			break;
-		case 250:
-				maxCountCreature = 18;
-				timeToSpawn = 1.1f;
-			break;
-		case 350:
+		case 470:
 				maxCountCreature = 19;
 				timeToSpawn = 1.1f;
 			break;
-		case 450:
+		case 570:
 				maxCountCreature = 21;
 				timeToSpawn = 0.9f;
 			break;
-		case 580:
+		case 680:
 				maxCountCreature = 22;
 				timeToSpawn = 0.7f;
 			break;
-		case 640:
+		case 840:
 			maxCountCreature = 23;
 				timeToSpawn = 0.4f;
 			break;

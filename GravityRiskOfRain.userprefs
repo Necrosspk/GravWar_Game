@@ -1,14 +1,17 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\AttackTriger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Chests.cs">
     <Files>
-      <File FileName="Assets\Script\SpawnerScript.cs" Line="21" Column="3" />
-      <File FileName="Assets\Script\CreatureDirector.cs" Line="105" Column="22" />
-      <File FileName="Assets\Script\PortalScript.cs" Line="67" Column="54" />
-      <File FileName="Assets\Script\ArcherWar.cs" Line="169" Column="67" />
-      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="234" Column="93" />
-      <File FileName="Assets\Script\characterControllerScript.cs" Line="84" Column="5" />
-      <File FileName="Assets\Script\AttackTriger.cs" Line="31" Column="31" />
+      <File FileName="Assets\Script\characterControllerScript.cs" Line="420" Column="6" />
+      <File FileName="Assets\Script\PortalScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Chests.cs" Line="42" Column="28" />
+      <File FileName="Assets\Script\AttackTriger.cs" Line="36" Column="42" />
+      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="64" Column="28" />
+      <File FileName="Assets\Script\ArcherWar.cs" Line="313" Column="5" />
+      <File FileName="Assets\Script\OnGUIs.cs" Line="30" Column="49" />
+      <File FileName="Assets\Script\GoldFly.cs" Line="33" Column="27" />
+      <File FileName="Assets\Script\ItemFromChest.cs" Line="32" Column="3" />
+      <File FileName="Assets\Script\HpFromEnemy.cs" Line="14" Column="39" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -31,6 +31,8 @@ public class EnemyScriptMelle : MonoBehaviour {
 	public int hp;
 	private TextMesh textdmg;
 	public Transform GUIdamage;
+	public Transform GUIdamageCritical;
+	private TextMesh textdmg2;
 
 	private CameraSmooth camScript;
 	private float move;
@@ -40,6 +42,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 	public float AttackCooldown = 1.0f;
 	public bool allive; 
 	public float Turntimer = 1.0f;
+	private bool lootgive = false;
 
 	public AudioSource BreathAU;
 
@@ -55,6 +58,10 @@ public class EnemyScriptMelle : MonoBehaviour {
 	private float StandTimer;
 	private bool Stand;
 	private CreatureDirector director;
+
+	public bool critical = false;
+	public Transform GoldPrefub;
+	public Transform HpPrefub;
 	/// <summary>
 	/// Начальная инициализация
 	/// </summary>
@@ -294,18 +301,27 @@ public class EnemyScriptMelle : MonoBehaviour {
 		if (hp <= 0)
 			allive=false;
 
-		if (!allive && lootable) {
+		if (!allive && lootable)
+		{
 			this.tag = "DeadEnemy";
-			anim.SetBool ("Dead",true);
-			this.collider2D.isTrigger=true;
-			this.rigidbody2D.isKinematic=true;
+			anim.SetBool ("Dead", true);
+			this.collider2D.isTrigger = true;
+			this.rigidbody2D.isKinematic = true;
 			BreathAU.Stop ();
-			playerscr.money+=loot;
-			smoothtext=1.0f;	
+			//playerscr.money+=loot;
+			smoothtext = 1.0f;	
 			director.countCreature--;
-			lootable=false;
-				}
-		smoothtext -= Time.deltaTime;
+			var gold = Instantiate (GoldPrefub) as Transform;
+			gold.position = transform.position;
+			gold.GetComponent<GoldFly> ().money = loot;
+			//playerscr.money += loot;
+			lootable = false;
+			if(playerscr.StacksItemsID[9]>0)
+			{
+				var hptr = Instantiate (HpPrefub) as Transform;
+				hptr.position = transform.position;
+			}
+		}
 		if (!allive && smoothtext <=0 && despawnOn) 
 		{
 			despawnT -= Time.deltaTime;
@@ -337,22 +353,34 @@ public class EnemyScriptMelle : MonoBehaviour {
 		}
 
 	}
-	public bool TakeDmg(int Dmg)
+	public bool TakeDmg(double Dmg)
 	{
+		int dmgi = (int)Dmg;
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
 		bloodTranform.position = transform.position;
-		hp -= Dmg;
-		textdmg = GUIdamage.GetComponent<TextMesh> ();
-		textdmg.text = "-"+Dmg.ToString ();
-		var GUID = Instantiate(GUIdamage) as Transform;
-		GUID.transform.position = transform.position;
+		hp -= dmgi;
+		if (!critical) 
+		{
+			textdmg = GUIdamage.GetComponent<TextMesh> ();
+			textdmg.text = "-" + dmgi.ToString ();
+			var GUID = Instantiate (GUIdamage) as Transform;
+			GUID.transform.position = transform.position;
+		} 
+		if (critical) 
+		{
+			textdmg2 = GUIdamageCritical.GetComponent<TextMesh> ();
+			textdmg2.text = "-" + Dmg.ToString ();
+			var GUID = Instantiate (GUIdamageCritical) as Transform;
+			GUID.transform.position = transform.position;
+			critical = false;
+		}
 		return true;
 	}
 
 	void OnGUI()
 	{
-		if (!allive && smoothtext>=0)
-			GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + loot.ToString()+"$");
+		//if (!allive && smoothtext>=0)
+			//GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + loot.ToString()+"$");
 	}
 
 	public void StunD (float time)

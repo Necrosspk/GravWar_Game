@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\CheckGoldEmpty.cs" />
      <Compile Include="Assets\MainMenu\AsyncLoadProgress.cs" />
      <Compile Include="Assets\MainMenu\Exit.cs" />
      <Compile Include="Assets\MainMenu\LooadingScenes.cs" />
@@ -68,10 +69,13 @@
      <Compile Include="Assets\Script\EnemyScriptMelle.cs" />
      <Compile Include="Assets\Script\ForestGamp_Bullet.cs" />
      <Compile Include="Assets\Script\GUIdestroymove.cs" />
+     <Compile Include="Assets\Script\GoldFly.cs" />
      <Compile Include="Assets\Script\HealthBar.cs" />
      <Compile Include="Assets\Script\HealthbarEnemy.cs" />
      <Compile Include="Assets\Script\HelthbarArcher.cs" />
+     <Compile Include="Assets\Script\HpFromEnemy.cs" />
      <Compile Include="Assets\Script\InfoScript.cs" />
+     <Compile Include="Assets\Script\ItemFromChest.cs" />
      <Compile Include="Assets\Script\MoveScript.cs" />
      <Compile Include="Assets\Script\OnGUIs.cs" />
      <Compile Include="Assets\Script\PortalScript.cs" />

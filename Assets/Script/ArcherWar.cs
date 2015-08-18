@@ -42,7 +42,9 @@ public class ArcherWar : MonoBehaviour
 	public Transform bloodPrefab;
 	//GUI
 	private TextMesh textdmg;
+	private TextMesh textdmg2;
 	public Transform GUIdamage;
+	public Transform GUIdamageCritical;
 
 	public bool despawnOn = false;
 	public float despawnT = 20f;
@@ -52,6 +54,9 @@ public class ArcherWar : MonoBehaviour
 	private bool Stun;
 	private CreatureDirector director;
 
+	public bool critical = false;
+	public Transform GoldPrefub;
+	public Transform HpPrefub;
 	// Use this for initialization
 	void Start () 
 	{
@@ -293,12 +298,21 @@ public class ArcherWar : MonoBehaviour
 			animArcher.SetBool ("Dead",true);
 			this.collider2D.isTrigger=true;
 			this.rigidbody2D.isKinematic=true;
-			playerscrArcher.money += lootArcher;
+			//playerscrArcher.money += lootArcher;
 			smoothText=1.0f;
 			director.countCreature--;
+			var gold = Instantiate (GoldPrefub) as Transform;
+			gold.position = transform.position;
+			gold.GetComponent<GoldFly>().money = lootArcher;
+			//playerscrArcher.money += lootArcher;
 			lootableArcher=false;
+			if(playerscrArcher.StacksItemsID[9]>0)
+			{
+				var hptr = Instantiate (HpPrefub) as Transform;
+				hptr.position = transform.position;
+			}
 		}
-		smoothText -= Time.deltaTime;
+
 		if (!alliveArcher && smoothText <=0 && despawnOn) 
 		{
 			despawnT -= Time.deltaTime;
@@ -318,24 +332,36 @@ public class ArcherWar : MonoBehaviour
 		}
 	}
 
-	public bool TakeDmg(int Dmg)
+	public bool TakeDmg(double Dmg)
 	{
+		int dmgint = (int)Dmg;
 		var bloodTranform = Instantiate (bloodPrefab) as Transform;
 		bloodTranform.position = transform.position;
-		hp -= Dmg;
-		textdmg = GUIdamage.GetComponent<TextMesh> ();
-		textdmg.text = "-"+Dmg.ToString ();
-		var GUID = Instantiate(GUIdamage) as Transform;
-		GUID.transform.position = transform.position;
+		hp -= dmgint;
+		if (!critical) 
+		{
+			textdmg = GUIdamage.GetComponent<TextMesh> ();
+			textdmg.text = "-" + dmgint.ToString ();
+			var GUID = Instantiate (GUIdamage) as Transform;
+			GUID.transform.position = transform.position;
+		} 
+		if (critical)
+		{
+			textdmg2 = GUIdamageCritical.GetComponent<TextMesh> ();
+			textdmg2.text = "-" + Dmg.ToString ();
+			var GUID = Instantiate (GUIdamageCritical) as Transform;
+			GUID.transform.position = transform.position;
+			critical = false;
+		}
 		return true;
 	}
 	
 	void OnGUI()
 	{
-		if (!alliveArcher && smoothText>=0) 
-		{
-			GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + lootArcher.ToString()+"$");
-		}  
+		//if (!alliveArcher && smoothText>=0) 
+		//{
+		//	GUI.TextArea (new Rect (Screen.width/2-10,Screen.height/2-5,40,20),"+" + lootArcher.ToString()+"$");
+		//}  
 	}
 
 	public void StunD (float time)

@@ -19,6 +19,7 @@ public class AttackTriger : MonoBehaviour {
 	public float time2 = 1;
 	public float time3 = 1;
 	public float time4 = 1;
+	private bool critical = false;
 
 	private ArcherWar ArcherScript;
 
@@ -34,6 +35,7 @@ public class AttackTriger : MonoBehaviour {
 
 	void OnTriggerEnter2D (Collider2D other) {
 		//Debug.Log("Trigger: Player Entered");
+
 		if (other.gameObject.tag == "EnemyMelle") 
 		{
 			EnSCR = other.GetComponent<EnemyScriptMelle> ();
@@ -42,7 +44,14 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked)
 			{
 				Punch.Play();
-				EnSCR.TakeDmg(dmg);			
+				if (!critical)
+					EnSCR.TakeDmg(dmg);	
+				if (critical)
+				{
+					EnSCR.critical = true;
+					EnSCR.TakeDmg(dmg*2);
+					critical = false;
+				}
 				attacked = false;
 			}
 			if(attacked || attacked3 || attacked4)
@@ -74,7 +83,14 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked4)
 			{
 				Punch.Play();
-				EnSCR.TakeDmg((int)(dmg*1.7));		
+				if (!critical)
+					EnSCR.TakeDmg(dmg*1.7);
+				if (critical)
+				{
+					EnSCR.critical = true;
+					EnSCR.TakeDmg(dmg*2*1.7);	
+					critical = false;
+				}
 				attacked = false;
 			}
 			//Debug.Log("WOW!");
@@ -87,7 +103,14 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked)
 			{
 				Punch.Play();
-				ArcherScript.TakeDmg(dmg);		
+				if (!critical)
+					ArcherScript.TakeDmg(dmg);	
+				if (critical)
+				{
+					ArcherScript.critical = true;
+					ArcherScript.TakeDmg(dmg*2);
+					critical=false;
+				}
 				attacked = false;
 			}
 			if(attacked || attacked3 || attacked4)
@@ -120,8 +143,15 @@ public class AttackTriger : MonoBehaviour {
 			if(attacked4)
 			{
 				Punch.Play();
-				ArcherScript.TakeDmg((int)(dmg*1.7));		
-				attacked = false;
+				if (!critical)
+					ArcherScript.TakeDmg(dmg*2*1.7);
+				if (critical)
+				{
+					ArcherScript.critical = true;
+					ArcherScript.TakeDmg(dmg*1.7);
+					critical=false;
+				}
+				attacked4= false;
 			}
 			//Debug.Log("WOW!");
 		}
@@ -133,11 +163,13 @@ public class AttackTriger : MonoBehaviour {
 		{
 			attacked = false;
 			attacked2 = false;
+			attacked4 = false;
 		}
 		if (other.gameObject.tag == "EnemyArcher") 
 		{
 			attacked = false;
 			attacked2 = false;
+			attacked4 = false;
 		}	
 	}
 
@@ -153,11 +185,17 @@ public class AttackTriger : MonoBehaviour {
 		spddmg3 = playerSCR.spddmg3;
 		spddmg4 = playerSCR.spddmg4;
 		//1
-		if (Input.GetButtonDown ("Fire1") && time <= 0) 
+		if (Input.GetButton ("Fire1") && time <= 0 && !playerSCR.isAttack) 
 		{
+			if (playerSCR.StacksItemsID [8] > 0) 
+			{
+				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
+					critical = true;
+			}
 			attacked = true;
 			playerSCR.anim.SetBool ("Attack", true);			
 			time = spddmg;	
+			playerSCR.isAttack=true;
 		} else
 		{
 			//attacked = false;
@@ -165,11 +203,12 @@ public class AttackTriger : MonoBehaviour {
 		}
 
 		//2
-		if (Input.GetButtonDown("Fire2") && time2<0)
+		if (Input.GetButton("Fire2") && time2<0 && !playerSCR.isAttack)
 		{
 			attacked2 = true;
 			playerSCR.anim.SetBool("Attack2", true);			
 			time2 = spddmg2;
+			playerSCR.isAttack=true;
 		}
 		else
 		{
@@ -178,7 +217,8 @@ public class AttackTriger : MonoBehaviour {
 		}
 
 		//3
-		if (Input.GetButtonDown("Fire3"))
+		/*
+		if (Input.GetButton("Fire3"))
 		{
 			attacked3 = true;
 			playerSCR.anim.SetBool("Attack3", true);
@@ -188,18 +228,32 @@ public class AttackTriger : MonoBehaviour {
 			//attacked3 = false;
 			playerSCR.anim.SetBool ("Attack3", false);
 		}
-
+		*/
 		//4
-		if (Input.GetButtonDown("Fire4") && time4<0)
+		if (Input.GetButton("Fire4") && time4<0 && !playerSCR.isAttack)
 		{
+			if (playerSCR.StacksItemsID [8] > 0) 
+			{
+				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
+					critical = true;
+			}
 			attacked4 = true;
 			playerSCR.anim.SetBool("Attack4", true);
 			time4 = spddmg4;
+			playerSCR.isAttack=true;
 		}
 		else
 		{
 			//attacked4 = false;
 			playerSCR.anim.SetBool ("Attack4", false);
+		}
+
+		if (!playerSCR.isAttack) 
+		{
+			attacked=false;
+			attacked2=false;
+			attacked3=false;
+			attacked4=false;
 		}
 	}
 

@@ -8,7 +8,8 @@ public class OnGUIs : MonoBehaviour {
 	public int hp;
 	public int maxhp;
 	public Texture hpbar;
-	public GUIStyle st;
+	public GUIStyle HPB;
+	public GUIStyle MONEYB;
 	private int money;
 	private int damage;
 	private float attackspped;
@@ -25,11 +26,12 @@ public class OnGUIs : MonoBehaviour {
 		kdturn = script.KDturn;
 
 		//GUI.Box (new Rect (0, 0, 100, 20), "HP: "+ hp + "%");
-		GUI.Box (new Rect (0, 20, 100, 20), "Money: "+money+"$");
+		//GUI.Box (new Rect (0, 20, 100, 20), "Money: "+money+"$");
+		GUI.TextArea (new Rect (Screen.width - 120, 20, 100, 30), money + "$$$",MONEYB);
 		GUI.Box (new Rect (0, 40, 100, 20), "DMG: "+damage+"$");
 		GUI.Box (new Rect (0, 60, 100, 20), "Attack speed: "+attackspped+"$");
 		GUI.Box (new Rect (0, 80, 100, 20), "KD spin: "+kdturn+"$");
-		GUI.TextArea (new Rect (Screen.width / 2, Screen.height - 45, 100, 20), hp + "/" + maxhp,st);
+		GUI.TextArea (new Rect (Screen.width / 2, Screen.height - 45, 100, 20), hp + "/" + maxhp,HPB);
 		/*
 		GUI.BeginGroup ( new Rect(100, 100, hp/maxhp*100*2.93f, 35)); //где 2.93 - ширина текстуры/100
 		GUI.DrawTexture( new Rect(0, 0, 293, 50), hpbar);  //293 - ширина текстуры
