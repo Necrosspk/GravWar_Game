@@ -175,10 +175,15 @@ public class AttackTriger : MonoBehaviour {
 
 	void Update()
 	{
-		time -= Time.deltaTime;
-		time2 -= Time.deltaTime;
-		time3 -= Time.deltaTime;
-		time4 -= Time.deltaTime;
+		if (time > 0)
+			time -= Time.deltaTime;
+		if (time2 > 0)
+			time2 -= Time.deltaTime;
+		if (time3 > 0)
+			time3 -= Time.deltaTime;
+		if (time4 > 0)
+			time4 -= Time.deltaTime;
+
 		dmg = playerSCR.Damage;
 		spddmg = playerSCR.spddmg;
 		spddmg2 = playerSCR.spddmg2;
@@ -193,9 +198,9 @@ public class AttackTriger : MonoBehaviour {
 					critical = true;
 			}
 			attacked = true;
-			playerSCR.anim.SetBool ("Attack", true);			
-			time = spddmg;	
+			playerSCR.anim.SetBool ("Attack", true);
 			playerSCR.isAttack=true;
+			time= playerSCR.spddmg;
 		} else
 		{
 			//attacked = false;
@@ -206,9 +211,9 @@ public class AttackTriger : MonoBehaviour {
 		if (Input.GetButton("Fire2") && time2<0 && !playerSCR.isAttack)
 		{
 			attacked2 = true;
-			playerSCR.anim.SetBool("Attack2", true);			
-			time2 = spddmg2;
+			playerSCR.anim.SetBool("Attack2", true);
 			playerSCR.isAttack=true;
+			time2= playerSCR.spddmg2;
 		}
 		else
 		{
@@ -239,8 +244,8 @@ public class AttackTriger : MonoBehaviour {
 			}
 			attacked4 = true;
 			playerSCR.anim.SetBool("Attack4", true);
-			time4 = spddmg4;
 			playerSCR.isAttack=true;
+			time4= playerSCR.spddmg4;
 		}
 		else
 		{
