@@ -208,7 +208,7 @@ public class AttackTriger : MonoBehaviour {
 		}
 
 		//2
-		if (Input.GetButton("Fire2") && time2<0 && !playerSCR.isAttack)
+		if (Input.GetButton("Fire2") && time2<=0 && !playerSCR.isAttack)
 		{
 			attacked2 = true;
 			playerSCR.anim.SetBool("Attack2", true);
@@ -235,7 +235,7 @@ public class AttackTriger : MonoBehaviour {
 		}
 		*/
 		//4
-		if (Input.GetButton("Fire4") && time4<0 && !playerSCR.isAttack)
+		if (Input.GetButton("Fire4") && time4<=0 && !playerSCR.isAttack)
 		{
 			if (playerSCR.StacksItemsID [8] > 0) 
 			{

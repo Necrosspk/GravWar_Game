@@ -39,9 +39,12 @@ public class Chests : MonoBehaviour {
 				break;
 		}
 		}
-		item = Random.Range (1, 5) * rare + Random.Range(0,3); // RARE - 1 (common) №1-10, RARE - 2 (rare) №11-20, RARE - 3 (unusial) № 21-30
+		item = Random.Range (0, 11);
+		//item = Random.Range (1, 5) * rare + Random.Range(0,3); // RARE - 1 (common) №1-10, RARE - 2 (rare) №11-20, RARE - 3 (unusial) № 21-30
 		if (item > 10)
 			item = 10;
+		if (item == 0)
+			item = 3;
 	}
 	
 	// Update is called once per frame

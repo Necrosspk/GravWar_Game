@@ -1,8 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\AttackTriger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Chests.cs">
     <Files>
-      <File FileName="Assets\Script\AttackTriger.cs" Line="203" Column="26" />
+      <File FileName="Assets\Script\Chests.cs" Line="43" Column="5" />
+      <File FileName="Assets\Script\AttackTriger.cs" Line="238" Column="42" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
