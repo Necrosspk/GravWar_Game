@@ -172,7 +172,71 @@ public class AttackTriger : MonoBehaviour {
 			attacked4 = false;
 		}	
 	}
-
+	void FixedUpdate()
+	{
+		if (Input.GetButton ("Fire1") && time <= 0 && !playerSCR.isAttack && playerSCR.allive) 
+		{
+			if (playerSCR.StacksItemsID [8] > 0) 
+			{
+				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
+					critical = true;
+			}
+			attacked = true;
+			playerSCR.anim.SetBool ("Attack", true);
+			playerSCR.isAttack=true;
+			time= playerSCR.spddmg;
+		} else
+		{
+			//attacked = false;
+			playerSCR.anim.SetBool ("Attack", false);
+		}
+		
+		//2
+		if (Input.GetButton("Fire2") && time2<=0 && !playerSCR.isAttack && playerSCR.allive)
+		{
+			attacked2 = true;
+			playerSCR.anim.SetBool("Attack2", true);
+			playerSCR.isAttack=true;
+			time2= playerSCR.spddmg2;
+		}
+		else
+		{
+			//attacked2 = false;
+			playerSCR.anim.SetBool ("Attack2", false);
+		}
+		
+		//3
+		/*
+		if (Input.GetButton("Fire3"))
+		{
+			attacked3 = true;
+			playerSCR.anim.SetBool("Attack3", true);
+		}
+		else
+		{
+			//attacked3 = false;
+			playerSCR.anim.SetBool ("Attack3", false);
+		}
+		*/
+		//4
+		if (Input.GetButton("Fire4") && time4<=0 && !playerSCR.isAttack && playerSCR.allive)
+		{
+			if (playerSCR.StacksItemsID [8] > 0) 
+			{
+				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
+					critical = true;
+			}
+			attacked4 = true;
+			playerSCR.anim.SetBool("Attack4", true);
+			playerSCR.isAttack=true;
+			time4= playerSCR.spddmg4;
+		}
+		else
+		{
+			//attacked4 = false;
+			playerSCR.anim.SetBool ("Attack4", false);
+		}
+	}
 	void Update()
 	{
 		if (time > 0)
@@ -190,68 +254,6 @@ public class AttackTriger : MonoBehaviour {
 		spddmg3 = playerSCR.spddmg3;
 		spddmg4 = playerSCR.spddmg4;
 		//1
-		if (Input.GetButton ("Fire1") && time <= 0 && !playerSCR.isAttack) 
-		{
-			if (playerSCR.StacksItemsID [8] > 0) 
-			{
-				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
-					critical = true;
-			}
-			attacked = true;
-			playerSCR.anim.SetBool ("Attack", true);
-			playerSCR.isAttack=true;
-			time= playerSCR.spddmg;
-		} else
-		{
-			//attacked = false;
-			playerSCR.anim.SetBool ("Attack", false);
-		}
-
-		//2
-		if (Input.GetButton("Fire2") && time2<=0 && !playerSCR.isAttack)
-		{
-			attacked2 = true;
-			playerSCR.anim.SetBool("Attack2", true);
-			playerSCR.isAttack=true;
-			time2= playerSCR.spddmg2;
-		}
-		else
-		{
-			//attacked2 = false;
-			playerSCR.anim.SetBool ("Attack2", false);
-		}
-
-		//3
-		/*
-		if (Input.GetButton("Fire3"))
-		{
-			attacked3 = true;
-			playerSCR.anim.SetBool("Attack3", true);
-		}
-		else
-		{
-			//attacked3 = false;
-			playerSCR.anim.SetBool ("Attack3", false);
-		}
-		*/
-		//4
-		if (Input.GetButton("Fire4") && time4<=0 && !playerSCR.isAttack)
-		{
-			if (playerSCR.StacksItemsID [8] > 0) 
-			{
-				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
-					critical = true;
-			}
-			attacked4 = true;
-			playerSCR.anim.SetBool("Attack4", true);
-			playerSCR.isAttack=true;
-			time4= playerSCR.spddmg4;
-		}
-		else
-		{
-			//attacked4 = false;
-			playerSCR.anim.SetBool ("Attack4", false);
-		}
 
 		if (!playerSCR.isAttack) 
 		{

@@ -1,0 +1,62 @@
+Initialize engine version: 4.5.3f3 (fca41a4fabea)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 550 Ti (ID=0x1244)
+    Vendor:   NVIDIA
+    VRAM:     978 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-UnityScript.dll (this message is harmless)
+Loading D:\Projects\GravityRiskOfRain\Bin\preAlpha 0.0.0.9.0\GravWar_Data\Managed\Assembly-UnityScript.dll into Unity Child Domain
+- Completed reload, in  0.278 seconds
+<RI> Initializing input.
+<RI> Input initialized.
+desktop: 1600x900 60Hz; virtual: 1600x900 at 0,0
+UnloadTime: 0.806173 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 2086.
+Total: 1.576298 ms (FindLiveObjects: 0.146651 ms CreateObjectMapping: 0.052024 ms MarkObjects: 0.336315 ms  DeleteObjects: 0.298218 ms)
+
+Cooldown of rotate decrease to: 2.7!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Speed increase to: 5.5!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Not enough money!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attack speed increase to: 0.5!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Attack speed increase to: 0.4!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Not enough money!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Speed increase to: 6.05!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+UnloadTime: 6.026638 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 364 unused Assets to reduce memory usage. Loaded Objects now: 406.
+Total: 4.590436 ms (FindLiveObjects: 0.038506 ms CreateObjectMapping: 0.029903 ms MarkObjects: 0.268724 ms  DeleteObjects: 3.556093 ms)
+

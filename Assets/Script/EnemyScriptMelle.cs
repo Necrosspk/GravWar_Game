@@ -130,7 +130,8 @@ public class EnemyScriptMelle : MonoBehaviour {
 		//при стандартных настройках проекта 
 		//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
 		//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)
-		Turntimer -= Time.deltaTime;
+		if (allive)
+			Turntimer -= Time.deltaTime;
 		if (!ISeeYou && Turntimer<=0) 
 		{
 			int rand=Random.Range(-2,2);
@@ -138,12 +139,12 @@ public class EnemyScriptMelle : MonoBehaviour {
 			Turntimer=1.0f;
 		}
 
-		if (Vector3.Distance (playerTransform.position, this.transform.position) < 7.0f)
+		if (Vector3.Distance (playerTransform.position, this.transform.position) < 7.0f && playerscr.allive)
 				ISeeYou = true;
 
 		turn = camScript.rotate;	
 		// если дистанция до игрока больше трех метров
-		if (ISeeYou && Turntimer<=0) 
+		if (ISeeYou && Turntimer<=0  && playerscr.allive) 
 		{
 			Turntimer=0.3f;
 			if (Vector3.Distance (playerTransform.position, this.transform.position) > 0.6f && allive) 
@@ -173,10 +174,10 @@ public class EnemyScriptMelle : MonoBehaviour {
 									move = -1;
 					}
 			} 
-			else if (allive) // если меньше или равна трем метрам
+			else if (allive  && playerscr.allive) // если меньше или равна трем метрам
 			{ 
 					move = 0;
-					if (AttackCooldown <= 0) 
+					if (AttackCooldown <= 0 && allive) 
 					{							
 						attack = true;
 						anim.SetBool ("Attack", true);
@@ -194,7 +195,8 @@ public class EnemyScriptMelle : MonoBehaviour {
 				attack = false;
 			}
 		}
-		AttackCooldown -= Time.deltaTime;
+		if (allive)
+			AttackCooldown -= Time.deltaTime;
 		
 		//в компоненте анимаций изменяем значение параметра Speed на значение оси Х.
 		//приэтом нам нужен модуль значения

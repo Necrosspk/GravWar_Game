@@ -114,20 +114,25 @@ public class ArcherWar : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		Turntimer -= Time.deltaTime;
+		if (alliveArcher)
+			Turntimer -= Time.deltaTime;
 		if (!ISeeYouArcher && Turntimer<=0) 
 		{
 			int rand=Random.Range(-2,2);
 			moveArcher = rand;
 			Turntimer=1.0f;
+			if (rand >1)
+				rand=1;
+			if (rand <-1)
+				rand=-1;
 		}
 		
-		if (Vector3.Distance (playerTransformArcher.position, this.transform.position) < 7.0f)
+		if (Vector3.Distance (playerTransformArcher.position, this.transform.position) < 7.0f && playerscrArcher.allive)
 			ISeeYouArcher = true;
 		
 		turnArcher = camScriptArcher.rotate;	
 		// если дистанция до игрока больше трех метров
-		if (ISeeYouArcher && Turntimer<=0) 
+		if (ISeeYouArcher && Turntimer<=0 && playerscrArcher.allive) 
 		{
 			Turntimer=0.3f;
 			if (Vector3.Distance (playerTransformArcher.position, this.transform.position) > 2.2f && alliveArcher) 
@@ -237,9 +242,10 @@ public class ArcherWar : MonoBehaviour
 				attackArcher = false;
 			}
 		}
-		AttackCooldown -= Time.deltaTime;
+		if (alliveArcher)
+			AttackCooldown -= Time.deltaTime;
 
-		if (attackArcher == true) 
+		if (attackArcher == true && alliveArcher) 
 		{
 			WeaponScript weapon = GetComponent<WeaponScript>();
 			if (weapon != null)
@@ -305,6 +311,7 @@ public class ArcherWar : MonoBehaviour
 			gold.position = transform.position;
 			gold.GetComponent<GoldFly>().money = lootArcher;
 			//playerscrArcher.money += lootArcher;
+			ISeeYouArcher = false;
 			lootableArcher=false;
 			if(playerscrArcher.StacksItemsID[9]>0)
 			{
