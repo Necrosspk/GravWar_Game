@@ -10,6 +10,9 @@ public class AttackTriger : MonoBehaviour {
 	public int dmg;	
 	public int dmg2;
 	public AudioSource Punch;
+	public AudioSource Punch2;
+	public AudioSource Punch3;
+	public AudioSource Punch4;
 	private EnemyScriptMelle EnSCR;
 	private float spddmg;
 	private float spddmg2;
@@ -20,6 +23,8 @@ public class AttackTriger : MonoBehaviour {
 	public float time3 = 1;
 	public float time4 = 1;
 	private bool critical = false;
+	public Transform Fire1;
+	public Transform Fire4;
 
 	private ArcherWar ArcherScript;
 
@@ -43,7 +48,6 @@ public class AttackTriger : MonoBehaviour {
 				attacked = false;
 			if(attacked)
 			{
-				Punch.Play();
 				if (!critical)
 					EnSCR.TakeDmg(dmg);	
 				if (critical)
@@ -82,7 +86,6 @@ public class AttackTriger : MonoBehaviour {
 				attacked4 = false;
 			if(attacked4)
 			{
-				Punch.Play();
 				if (!critical)
 					EnSCR.TakeDmg(dmg*1.7);
 				if (critical)
@@ -102,7 +105,6 @@ public class AttackTriger : MonoBehaviour {
 				attacked = false;
 			if(attacked)
 			{
-				Punch.Play();
 				if (!critical)
 					ArcherScript.TakeDmg(dmg);	
 				if (critical)
@@ -142,7 +144,6 @@ public class AttackTriger : MonoBehaviour {
 				attacked4 = false;
 			if(attacked4)
 			{
-				Punch.Play();
 				if (!critical)
 					ArcherScript.TakeDmg(dmg*2*1.7);
 				if (critical)
@@ -157,7 +158,6 @@ public class AttackTriger : MonoBehaviour {
 		}
 	}
 
-	
 	void OnTriggerExit2D (Collider2D other) {
 		if (other.gameObject.tag == "EnemyMelle") 
 		{
@@ -172,6 +172,7 @@ public class AttackTriger : MonoBehaviour {
 			attacked4 = false;
 		}	
 	}
+
 	void FixedUpdate()
 	{
 		if (Input.GetButton ("Fire1") && time <= 0 && !playerSCR.isAttack && playerSCR.allive) 
@@ -181,7 +182,8 @@ public class AttackTriger : MonoBehaviour {
 				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
 					critical = true;
 			}
-			attacked = true;
+			attacked = true;			
+			Punch.Play();
 			playerSCR.anim.SetBool ("Attack", true);
 			playerSCR.isAttack=true;
 			time= playerSCR.spddmg;
@@ -221,6 +223,7 @@ public class AttackTriger : MonoBehaviour {
 		//4
 		if (Input.GetButton("Fire4") && time4<=0 && !playerSCR.isAttack && playerSCR.allive)
 		{
+			Punch4.Play();
 			if (playerSCR.StacksItemsID [8] > 0) 
 			{
 				if (Random.Range(0,(100-10*playerSCR.StacksItemsID[8]))<10)
@@ -235,7 +238,7 @@ public class AttackTriger : MonoBehaviour {
 		{
 			//attacked4 = false;
 			playerSCR.anim.SetBool ("Attack4", false);
-		}
+		}	
 	}
 	void Update()
 	{
@@ -254,6 +257,21 @@ public class AttackTriger : MonoBehaviour {
 		spddmg3 = playerSCR.spddmg3;
 		spddmg4 = playerSCR.spddmg4;
 		//1
+
+		if (attacked) 
+		{
+			var shotTransform = Instantiate(Fire1) as Transform;			
+			// Определите положение
+			shotTransform.position = transform.position;
+			attacked=false;
+		}
+		if (attacked4) 
+		{
+			var shotTransform = Instantiate(Fire4) as Transform;			
+			// Определите положение
+			shotTransform.position = transform.position;
+			attacked4=false;
+		}
 
 		if (!playerSCR.isAttack) 
 		{

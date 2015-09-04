@@ -1,11 +1,14 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\EnemyScriptMelle.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ShotginBullet.cs">
     <Files>
-      <File FileName="Assets\Script\AttackTriger.cs" Line="222" Column="86" />
+      <File FileName="Assets\Script\AttackTriger.cs" Line="225" Column="4" />
       <File FileName="Assets\Script\Chests.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\ArcherWar.cs" Line="248" Column="43" />
-      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="178" Column="6" />
+      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="363" Column="14" />
+      <File FileName="Assets\Script\ShotginBullet.cs" Line="128" Column="41" />
+      <File FileName="Assets\Script\MoveScript.cs" Line="44" Column="15" />
+      <File FileName="Assets\Script\WeaponScript.cs" Line="68" Column="42" />
+      <File FileName="Assets\Script\characterControllerScript.cs" Line="214" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
