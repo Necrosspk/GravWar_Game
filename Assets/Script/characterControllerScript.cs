@@ -238,6 +238,8 @@ public class characterControllerScript : MonoBehaviour {
 		{
 			if (hp > Maxhp)
 				hp = Maxhp;
+			if (hp < 0)
+				hp=0;
 
 			//-1 возвращается при нажатии на клавиатуре стрелки влево (или клавиши А),
 			//1 возвращается при нажатии на клавиатуре стрелки вправо (или клавиши D)

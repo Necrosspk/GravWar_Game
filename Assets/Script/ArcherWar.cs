@@ -301,6 +301,7 @@ public class ArcherWar : MonoBehaviour
 		if (!alliveArcher && lootableArcher) 
 		{
 			this.tag = "DeadEnemy";
+			animArcher.SetBool ("Attack",false);
 			animArcher.SetBool ("Dead",true);
 			this.collider2D.isTrigger=true;
 			this.rigidbody2D.isKinematic=true;
@@ -332,6 +333,7 @@ public class ArcherWar : MonoBehaviour
 		{
 			moveArcher = 0;
 			attackArcher = false;
+			animArcher.SetBool ("Attack",false);
 			StunTimer -= Time.deltaTime;
 		} else
 		{

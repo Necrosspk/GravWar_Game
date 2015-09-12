@@ -1,14 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ShotginBullet.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Chests.cs">
     <Files>
-      <File FileName="Assets\Script\AttackTriger.cs" Line="225" Column="4" />
-      <File FileName="Assets\Script\Chests.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\EnemyScriptMelle.cs" Line="363" Column="14" />
-      <File FileName="Assets\Script\ShotginBullet.cs" Line="128" Column="41" />
-      <File FileName="Assets\Script\MoveScript.cs" Line="44" Column="15" />
-      <File FileName="Assets\Script\WeaponScript.cs" Line="68" Column="42" />
-      <File FileName="Assets\Script\characterControllerScript.cs" Line="214" Column="5" />
+      <File FileName="Assets\Script\CreatureDirector.cs" Line="114" Column="23" />
+      <File FileName="Assets\Script\SpawnerScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\AttackTriger.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\characterControllerScript.cs" Line="242" Column="10" />
+      <File FileName="Assets\Script\Chests.cs" Line="99" Column="21" />
+      <File FileName="Assets\Script\OnGUIs.cs" Line="37" Column="4" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

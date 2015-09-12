@@ -107,6 +107,13 @@ public class CreatureDirector : MonoBehaviour {
 		}
 		if (countCreature < maxCountCreature && !portal.isStarted && !portal.ended && hit && timer2 < 0) 
 		{
+			if ((int)timer>45 && Random.Range(0,3)==2)
+				spawner.DoSpawn();
+			if ((int)timer>80 && Random.Range(1,4)==3)
+			{
+				spawner.DoSpawn();
+				spawner.DoSpawn();
+			}
 			spawner.DoSpawn();
 			timer2 = timeToSpawn;
 		}

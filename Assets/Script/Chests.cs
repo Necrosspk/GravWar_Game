@@ -7,13 +7,16 @@ public class Chests : MonoBehaviour {
 	private characterControllerScript script;
 	public int price;
 	private int item;
-	private int rare;
+	private int rare;	
+	public GUIStyle chestGUI;
+	private OnGUIs GGUUII;
 
 	public Transform CommonItem;
 	public Transform RareItem;
 	public Transform UnusualItem;
 	// Use this for initialization
 	void Start () {
+		GGUUII = (OnGUIs)(FindObjectOfType (typeof(OnGUIs)));
 		int rand = Random.Range (1, 20);
 		if (rand > 9)
 			Destroy (this.gameObject);
@@ -55,14 +58,18 @@ public class Chests : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D (Collider2D other) {
-		if(other.gameObject.tag == "Player")
-			entered=false;
+		if (other.gameObject.tag == "Player") {
+						entered = false;
+						GGUUII.price = 0;
+				}
 	}
 
 	void Update () {
 		if (entered == true)
 		{
-			if (Input.GetKeyDown (KeyCode.F)){ 
+			GGUUII.price = price;
+			if (Input.GetKeyDown (KeyCode.F))
+			{ 
 				if(script.money<price)
 				{
 					Debug.Log("Not enough money!");
@@ -89,16 +96,12 @@ public class Chests : MonoBehaviour {
 					}
 					script.item_id = item;
 					script.money -=price;
+					GGUUII.price=0;
 					//Debug.Log("You took a: " + item + "!");
 						Destroy (this.gameObject);
 				}
 			}
 		}
 	}
-
-	void OnGUI(){
-		if (entered)
-			GUI.Box (new Rect (400, 150, 100, 40), "Price\n of chest: " + price + "$");
-		}
 
 }

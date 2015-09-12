@@ -306,6 +306,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 		if (!allive && lootable)
 		{
 			this.tag = "DeadEnemy";
+			anim.SetBool ("Attack",false);
 			anim.SetBool ("Dead", true);
 			this.collider2D.isTrigger = true;
 			this.rigidbody2D.isKinematic = true;
@@ -348,6 +349,7 @@ public class EnemyScriptMelle : MonoBehaviour {
 		if (Stand && StandTimer >= 0) 
 		{
 			move = 0;
+			anim.SetBool ("Attack",false);
 			StandTimer -= Time.deltaTime;
 		} else
 		{
